@@ -16,6 +16,16 @@ app.config(function($routeProvider) {
 		templateUrl : 'views/posts.html',
 		controller : 'PostsCtrl'
 	});
+	//Using the posts view with filters written into the controllers
+	$routeProvider.when('/posts/positions', {
+		templateUrl : 'views/posts.html',
+		controller : 'PostsPositionsCtrl'
+	});
+	//Using the posts view with filters written into the controllers
+	$routeProvider.when('/posts/freelance', {
+		templateUrl : 'views/posts.html',
+		controller : 'PostsFreelanceCtrl'
+	});
 
 	$routeProvider.when('/add-freelance', {
 		templateUrl : 'views/add-freelance.html',
