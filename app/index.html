@@ -39,22 +39,22 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
 						<li>
-							<a href="#/posts">All Posts</a>
+							<a ng-show="loginObj.user" href="#/posts">All Posts</a>
 						</li>
 						<li>
-							<a href="#/posts/freelance">Freelance Opportunities</a>
+							<a ng-show="loginObj.user" href="#/posts/freelance">Freelance Opportunities</a>
 						</li>
 						<li>
-							<a href="#/posts/positions">Positions For Hire</a>
+							<a ng-show="loginObj.user" href="#/posts/positions">Open Positions</a>
 						</li>
 						<li>
-							<a href="#/add-freelance">Add a Freelance Opportunity</a>
+							<a ng-show="loginObj.user" href="#/add-freelance">Add a Freelance Opportunity</a>
 						</li>
 						<li>
-							<a href="#/add-position">Add a Position For Hire</a>
+							<a ng-show="loginObj.user" href="#/add-position">Add a Position Opening</a>
 						</li>
 						<li>
-							<a href="#/my-posts">My Posts</a>
+							<a ng-show="loginObj.user" href="#/my-posts">My Posts</a>
 						</li>
 						<li>
 							<a ng-hide="loginObj.user" ng-click="loginObj.$login('github')">Login with github</a>

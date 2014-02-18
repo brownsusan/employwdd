@@ -13,7 +13,7 @@ angular.module('employwddApp').controller('PostsCtrl', function($scope) {
 });
 
 angular.module('employwddApp').controller('PostsPositionsCtrl', function($scope) {
-	$scope.pageHeading = 'Positions For Hire';
+	$scope.pageHeading = 'Open Positions';
 });
 
 angular.module('employwddApp').controller('PostsFreelanceCtrl', function($scope) {
