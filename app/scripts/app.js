@@ -7,7 +7,8 @@ app.config(function($routeProvider) {
 		controller : 'MainCtrl'
 	});
 
-	$routeProvider.when('/post/:postNumber', {
+	// Will eventually need /:postNumber
+	$routeProvider.when('/post', {
 		templateUrl : 'views/post.html',
 		controller : 'PostCtrl'
 	});
