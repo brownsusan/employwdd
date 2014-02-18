@@ -32,7 +32,9 @@ app.config(function($routeProvider) {
 		controller : 'MyPostsCtrl'
 	});
 
-	$routeProvider.when('/edit/:postNumber', {
+
+	//will eventually need /:postNumber
+	$routeProvider.when('/edit', {
 		templateUrl : 'views/edit-post.html',
 		controller : 'EditPostCtrl'
 	});
