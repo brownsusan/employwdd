@@ -20,15 +20,11 @@ angular.module('employwddApp').controller('PostsFreelanceCtrl', function($scope)
 	$scope.pageHeading = 'Freelance Opportunities';
 });
 
-angular.module('employwddApp').controller('AddFreelanceCtrl', function($scope) {
+angular.module('employwddApp').controller('AddPostCtrl', function($scope) {
 
 });
 
-angular.module('employwddApp').controller('AddPositionCtrl', function($scope) {
-
-});
-
-angular.module('employwddApp').controller('MyPostsCtrl', function($scope) {
+angular.module('employwddApp').controller('DashboardCtrl', function($scope) {
 
 });
 

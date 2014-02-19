@@ -33,14 +33,14 @@ app.config(function($routeProvider) {
 		controller : 'AddFreelanceCtrl'
 	});
 
-	$routeProvider.when('/add-position', {
-		templateUrl : 'views/add-position.html',
-		controller : 'AddPositionCtrl'
+	$routeProvider.when('/add-post', {
+		templateUrl : 'views/add-post.html',
+		controller : 'AddPostCtrl'
 	});
 	
-	$routeProvider.when('/my-posts', {
-		templateUrl : 'views/my-posts.html',
-		controller : 'MyPostsCtrl'
+	$routeProvider.when('/dashboard', {
+		templateUrl : 'views/dashboard.html',
+		controller : 'DashboardCtrl'
 	});
 
 
