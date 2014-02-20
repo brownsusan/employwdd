@@ -2,7 +2,7 @@
 body {
 	padding-top: 70px;
 	font-size: 14px;
-	background: #f8f8f8;
+	background: #f2f5fa;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -24,9 +24,23 @@ h3 {
 	font-size: 16px;
 }
 
+.btn-success{
+	background: #b4d77e; 
+	border-color: #a4cf61;
+}
+
+.btn-success:hover{
+	background: #a4cf61;
+	border-color: #97c74c;
+}
+
+.label{
+	font-weight: normal;
+}
+
 .well{
 	padding:15px;
-	background: rgba(0, 0, 0, 0.1);
+	background: #f8f8f8;
 }
 
 .type{
