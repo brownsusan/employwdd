@@ -1,10 +1,10 @@
 <h1>Add A Post</h1>
 
 <div class="form-group">
-	<input type="radio" name="freelance" ng-model="freelance" ng-init="freelance = true"/>
-	<label id="freelance">Freelance</label>
-	<input type="radio" name="position" ng-model="position" ng-init="position = true"/>
-	<label id="position">Open Position</label>
+	<label id="freelance"><input type="radio" name="freelance" ng-model="freelance" ng-init="freelance = true"/>
+	Freelance</label>
+	<label id="position"><input type="radio" name="position" ng-model="position" ng-init="position = true"/>
+	Open Position</label>
 </div>
 
 <div class="form-group">
@@ -15,7 +15,7 @@
 <div class="form-group">
 	<label>Position Needed</label>
 	<br />
-	<select>
+	<select class="form-control">
 		<option value="design">Design</option>
 		<option value="front-end">Front-End Development</option>
 		<option value="back-end">Back-End Development</option>
@@ -32,7 +32,7 @@
 <div class="form-group">
 	<label>Compensation</label>
 	<br />
-	<select>
+	<select class="form-control">
 		<option value="paid">Paid</option>
 		<option value="unpaid">Unpaid</option>
 	</select>
@@ -126,8 +126,9 @@
 
 <div class="form-group">
 	<label>Description</label>
-	<textarea class="form-control">Put any additional information here. This may, and probably should, include at least project details, more information on compensation, and additional contact info if available.</textarea>
+	<span class="help-block">Include any additional info, such as required technology, frameworks or libraries, project details, etc.</span>
+	<textarea class="form-control"></textarea>
 </div>
-<button class="btn-success btn-block btn-sm" ng-click="submit()">
+<button class="btn btn-success btn-block btn-sm" ng-click="submit()">
 	Post It
 </button>
