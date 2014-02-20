@@ -22,6 +22,18 @@ angular.module('employwddApp').controller('PostsFreelanceCtrl', function($scope)
 
 angular.module('employwddApp').controller('AddPostCtrl', function($scope) {
 
+
+	$scope.submit = function() {
+
+		var tech = {
+			'photoshop' : $scope.photoshop,
+			'illustrator' : $scope.illustrator,
+			'javascript' : $scope.illustrator
+		};
+		
+		console.log(tech);
+
+	}
 });
 
 angular.module('employwddApp').controller('DashboardCtrl', function($scope) {

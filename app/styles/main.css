@@ -1,6 +1,8 @@
 /* Everything but the jumbotron gets side spacing for mobile first views */
 body {
+	padding-top: 70px;
 	font-size: 14px;
+	background: #e2efd8;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -24,6 +26,7 @@ h3 {
 
 .well{
 	padding:15px;
+	background: rgba(0, 0, 0, 0.1);
 }
 
 .type{

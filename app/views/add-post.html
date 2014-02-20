@@ -1,0 +1,113 @@
+<h1>Add A Position Opening</h1>
+<h2>Post Details</h2>
+<div class="form-group">
+	<label>Title</label>
+	<input type="text" class="form-control" placeholder="Basic brochure site - quick and simple!"/>
+</div>
+
+<div class="form-group">
+	<label>Position Needed</label>
+	<br />
+	<select>
+		<option value="design">Design</option>
+		<option value="front-end">Front-End Development</option>
+		<option value="back-end">Back-End Development</option>
+		<option value="database">Database</option>
+	</select>
+</div>
+
+<div class="form-group">
+	<label>Client</label>
+	<br />
+	<input type="text" class="form-control" placeholder="Some Client Name"/>
+</div>
+
+<div class="form-group">
+	<label>Compensation</label>
+	<br />
+	<select>
+		<option value="paid">Paid</option>
+		<option value="unpaid">Unpaid</option>
+	</select>
+</div>
+
+<div class="form-group">
+	<label>Required Technologies</label>
+
+	<fieldset id="design-tech">
+		<div>
+			<span>Design</span>
+			<div class="form-group">
+				<input id="photoshop" type="checkbox" name="design" ng-model="photoshop" ng-init="photoshop = false">
+				<label for="photoshop">photoshop</label>
+				<br />
+			</div>
+			<div class="form-group">
+				<input id="illustrator" type="checkbox" name="design" ng-model="illustrator" ng-init="illustrator = false">
+				<label for="illustrator">illustrator</label>
+			</div>
+			<div class="form-group">
+				<input id="indesign" type="checkbox" name="design" ng-model="indesign" ng-init="indesign = false">
+				<label for="indesign">In Design</label>
+			</div>
+		</div>
+		<div>
+			<span>Front-End</span>
+			<div class="form-group">
+				<input id="javascript" type="checkbox" name="front-end" ng-model="javascript" ng-init="javascript = false">
+				<label for="javascript">javascript</label>
+			</div>
+			<div class="form-group">
+				<input id="html" type="checkbox" name="front-end" ng-model="html" ng-init="html = false">
+				<label for="html">HTML 5</label>
+			</div>
+			<div class="form-group">
+				<input id="css" type="checkbox" name="front-end" ng-model="css" ng-init="css = false">
+				<label for="css">CSS 3</label>
+			</div>
+		</div>
+		<div>
+			<span>Back-End</span>
+			<div class="form-group">
+				<input id="php" type="checkbox" name="back-end" ng-model="php" ng-init="php = false">
+				<label for="php">PHP</label>
+			</div>
+			<div class="form-group">
+				<input id="node" type="checkbox" name="back-end" ng-model="node" ng-init="node = false">
+				<label for="node">Node JS</label>
+			</div>
+			<div class="form-group">
+				<input id="python" type="checkbox" name="back-end" ng-model="python" ng-init="python = false">
+				<label for="python">Python</label>
+			</div>
+			<div class="form-group">
+				<input id="ruby" type="checkbox" name="back-end" ng-model="ruby" ng-init="ruby = false">
+				<label for="ruby">Ruby</label>
+			</div>
+		</div>
+		<div>
+			<span>Database</span>
+			<div class="form-group">
+				<input id="java" type="checkbox" name="back-end" ng-model="java" ng-init="java = false">
+				<label for="java">Java</label>
+			</div>
+			<div class="form-group">
+				<input id="mongo" type="checkbox" name="database" ng-model="mongo" ng-init="mongo = false">
+				<label for="mongo">Mongo DB</label>
+			</div>
+			<div class="form-group">
+				<input id="mysql" type="checkbox" name="database" ng-model="mysql" ng-init="mysql = false">
+				<label for="mysql">My SQL</label>
+			</div>
+		</div>
+	</fieldset>
+
+</div>
+
+<div class="form-group">
+	<label>Description</label>
+	<textarea class="form-control">Put any additional information here. This may, and probably should, include at least project details, more information on compensation, and additional contact info if available.</textarea>
+</div>
+<button class="btn-success btn-block btn-sm" ng-click="submit()">
+	Post It
+</button>
