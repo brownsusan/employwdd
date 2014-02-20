@@ -39,15 +39,18 @@ h3 {
 }
 
 .well{
-	padding:15px;
+	padding: 15px;
 	background: #f8f8f8;
+}
+
+.jumbotron{
+	background: none;
 }
 
 .type{
 	font-size: 12px;
 	margin-left: 10px;
 }
-
 
 
 .header, .marketing, .footer {
