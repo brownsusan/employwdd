@@ -2,49 +2,49 @@
 <form>
 	<div class="form-group">
 		<label id="freelance">
-			<input type="radio" name="freelance" ng-model="freelance" ng-init="freelance = false"/>
+			<input type="radio" name="postType" ng-model="postType" ng-value="'freelance'"/>
 			<img src="/images/icon/freelance.png" /><br />Freelance</label>
 		<label id="position">
-			<input type="radio" name="position" ng-model="position" ng-init="position = false"/>
+			<input type="radio" name="postType" ng-model="postType" ng-value="'position'"/>
 			<img src="/images/icon/position.png" /><br />Open Position</label>
 	</div>
 
 	<div class="form-group">
 		<label>Title</label>
-		<input type="text" class="form-control" placeholder="Basic brochure site - quick and simple!"/>
+		<input type="text" ng-model="title" class="form-control" placeholder="Basic brochure site - quick and simple!"/>
 	</div>
 
 	<div class="form-group">
 		<label>Position Needed</label>
 		<br />
 		<label id="design">
-			<input type="radio" name="design" ng-model="design" ng-init="design = false"/>
+			<input type="radio" name="positionNeeded" ng-model="positionNeeded" ng-value="'design'"/>
 			<img src="/images/icon/design.png" /><br />Design</label>
 		<label id="front-end">
-			<input type="radio" name="front-end" ng-model="front-end" ng-init="front-end = false"/>
+			<input type="radio" name="positionNeeded" ng-model="positionNeeded" ng-value="'frontEnd'"/>
 			<img src="/images/icon/front-end.png" /><br />Front-End Dev</label>
 		<label id="back-end">
-			<input type="radio" name="back-end" ng-model="back-end" ng-init="back-end = false"/>
+			<input type="radio" name="positionNeeded" ng-model="positionNeeded" ng-value="'backEnd'"/>
 			<img src="/images/icon/back-end.png" /><br />Back-End Dev</label>
 		<label id="database">
-			<input type="radio" name="database" ng-model="database" ng-init="database = false"/>
+			<input type="radio" name="positionNeeded" ng-model="positionNeeded" ng-value="'database'"/>
 			<img src="/images/icon/db.png" /><br />Database</label>
 	</div>
 
 	<div class="form-group">
 		<label>Client</label>
 		<br />
-		<input type="text" class="form-control" placeholder="Some Client Name"/>
+		<input type="text" class="form-control" ng-model="client" placeholder="Some Client Name"/>
 	</div>
 
 	<div class="form-group">
 		<label>Compensation</label>
 		<br />
 		<label id="paid">
-			<input type="radio" name="paid" ng-model="paid" ng-init="paid = false"/>
+			<input type="radio" name="compensation" ng-model="compensation" ng-value="'paid'" />
 			<img src="/images/icon/paid.png" /><br />Paid</label>
 		<label id="unpaid">
-			<input type="radio" name="unpaid" ng-model="unpaid" ng-init="unpaid = false"/>
+			<input type="radio" name="compensation" ng-model="compensation" ng-value="'unpaid'" />
 			<img src="/images/icon/unpaid.png" /><br />Unpaid</label>
 	</div>
 
@@ -135,11 +135,11 @@
 	</div>
 
 	<div class="form-group">
-		<label>Description</label>
+		<label for="description">Description</label>
 		<span class="help-block">Include any additional info, such as required technology, frameworks or libraries, project details, etc.</span>
-		<textarea class="form-control"></textarea>
+		<textarea name="description" class="form-control" ng-model="description"></textarea>
 	</div>
-	<button class="btn btn-success btn-block btn-sm" ng-click="submit()">
+	<button class="btn btn-success btn-block btn-sm" ng-click="addPost()">
 		Post It
 	</button>
 </form>

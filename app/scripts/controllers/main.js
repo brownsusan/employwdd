@@ -24,18 +24,49 @@ angular.module('employwddApp').controller('PostsFreelanceCtrl', function($scope)
 	$scope.pageHeading = 'Freelance Opportunities';
 });
 
-angular.module('employwddApp').controller('AddPostCtrl', function($scope) {
+angular.module('employwddApp').controller('AddPostCtrl', function($scope, FireConn) {
+	
 
-
-	$scope.submit = function() {
-
-		var tech = {
-			'photoshop' : $scope.photoshop,
-			'illustrator' : $scope.illustrator,
-			'javascript' : $scope.illustrator
-		};
+	$scope.addPost = function() {
+		$scope.posts = FireConn.$child('posts');
+		// Format Data
+		$scope.newPost = {
+			postType: $scope.postType,
+			title: $scope.title,
+			positionNeeded: $scope.positionNeeded,
+			client: $scope.client,
+			compensation: $scope.compensation,
+			reqTech: {
+				'design' : {
+					'photoshop' : $scope.photoshop,
+					'illustrator': $scope.photoshop,
+					'indesign' : $scope.photoshop
+				},
+				'frontend' : {
+					'html' : $scope.photoshop,
+					'css' : $scope.photoshop,
+					'js' : $scope.photoshop
+				},
+				'backend' : {
+					'php' : $scope.photoshop,
+					'node' : $scope.photoshop,
+					'python' : $scope.photoshop,
+					'ruby' : $scope.photoshop,
+					'java' : $scope.photoshop
+				},
+				'database' : {
+					'mongo' : $scope.photoshop,
+					'sql' : $scope.photoshop
+				}
+			},
+			description: $scope.description 
+		}
 		
-		console.log(tech);
+		// $scope.posts.$add($scope.newPost);
+			
+		// Firebase Connection - connect to the posts collection
+		// Push into firebase
+		
 
 	}
 });
