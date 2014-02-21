@@ -62,7 +62,7 @@ angular.module('employwddApp').controller('AddPostCtrl', function($scope, FireCo
 			description: $scope.description 
 		}
 		
-		// $scope.posts.$add($scope.newPost);
+		$scope.posts.$add($scope.newPost);
 			
 		// Firebase Connection - connect to the posts collection
 		// Push into firebase
