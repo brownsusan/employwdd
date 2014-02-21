@@ -1,4 +1,4 @@
-<div class="jumbotron">
+<div ng-hide="loginObj.user" class="jumbotron">
 	<h1>Looking for work?</h1>
 	<p class="lead">
 		Or have too much work already?
@@ -9,11 +9,14 @@
 	<a class="btn btn-lg btn-success" ng-href="#">Login with GitHub!</a>
 </div>
 
-
-<!-- Needs conditional to change view -->
-<!-- <button class="btn btn-lg btn-success">
-	Add A Post
-</button>
-<button class="btn btn-lg btn-success">
-	View Posts
-</button> -->
+<div ng-show="loginObj.user">
+	<button class="btn btn-lg btn-success">
+		Add A Post
+	</button><br />
+	<button class="btn btn-lg btn-success">
+		View Posts
+	</button><br />
+	<button class="btn btn-lg btn-success">
+		My Dash
+	</button>
+</div>
