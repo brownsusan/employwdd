@@ -15,25 +15,15 @@
 	</div>
 </div>
 <h2>My Requests</h2>
+
+<!-- <div ng-repeat="request in requests" ng-if="postPriority == request.postPriority"> -->
+
+<!-- This should link to the post it is attached to -->
 <div class="row marketing">
-	<div class="well">
-		<span class="pull-right label label-info">Open Position</span>
-		<h2>Prototype post test</h2>
-		<span><strong>Position Needed:</strong> Back-end Dev</span><br />
-		<a href="#/post">View This Post</a>
-	</div>
-
-	<div class="well">
-		<span class="pull-right label label-info">Freelance</span>
-		<h2>Prototype post test again</h2>
-		<span><strong>Client:</strong> Some Client Person</span><br />
-		<a href="#/post">View This Post</a>
-	</div>
-
-	<div class="well">
-		<span class="pull-right label label-info">Open Position</span>
-		<h2>Prototype post</h2>
-		<span><strong>Position Needed:</strong> Front-end Dev</span><br />
-		<a href="#/post">View This Post</a>
+	<div class="well" ng-repeat="request in requests" ng-if="request.ownerId == loginObj.user.id">
+		<img class="glyphicon img-circle" ng-src="{{request.gravatar}}" />
+		<span>{{request.ownerName}}</span>
+		<span>{{request.phoneNum}}</span>
+		<span>{{request.email}}</span>
 	</div>
 </div>

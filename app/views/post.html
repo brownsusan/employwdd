@@ -19,13 +19,22 @@
 	<img ng-src="images/icon/{{post.positionNeeded}}.png" />
 </div>
 <div>
-	<strong>Required Technology: </strong><br />
+	<strong>Required Technology: </strong>
+	<br />
 	<div>
 		<!-- <img src="/images/back-end/java_icon.png" /><br /> -->
-		<div ng-repeat="tech in post.reqTech.design" ng-if="tech">{{tech}}</div>
-		<div ng-repeat="tech in post.reqTech.frontend" ng-if="tech">{{tech}}</div>
-		<div ng-repeat="tech in post.reqTech.backend" ng-if="tech">{{tech}}</div>
-		<div ng-repeat="tech in post.reqTech.database" ng-if="tech">{{tech}}</div>
+		<div ng-repeat="tech in post.reqTech.design" ng-if="tech">
+			{{tech}}
+		</div>
+		<div ng-repeat="tech in post.reqTech.frontend" ng-if="tech">
+			{{tech}}
+		</div>
+		<div ng-repeat="tech in post.reqTech.backend" ng-if="tech">
+			{{tech}}
+		</div>
+		<div ng-repeat="tech in post.reqTech.database" ng-if="tech">
+			{{tech}}
+		</div>
 	</div>
 </div>
 <div ng-show="post.compensation == 'paid'">
@@ -72,8 +81,10 @@
 
 <strong>Requests</strong>
 <div ng-repeat="request in requests" ng-if="postPriority == request.postPriority">
-	<img class="glyphicon img-circle" ng-src="{{request.gravatar}}" />
-	<span>{{request.ownerName}}</span>
-	<span>{{request.phoneNum}}</span>
-	<span>{{request.email}}</span>
+	<div>
+		<img class="glyphicon img-circle" ng-src="{{request.gravatar}}" />
+		<span>{{request.ownerName}}</span>
+		<span>{{request.phoneNum}}</span>
+		<span>{{request.email}}</span>
+	</div>
 </div>
