@@ -34,6 +34,7 @@ angular.module('employwddApp').controller('AddPostCtrl', function($scope, FireCo
 		// Need Users to set the owner
 		// Format Data
 		$scope.newPost = {
+			uuid : uuid.v4(),
 			owner :  $scope.loginObj.user.id,
 			postType: $scope.postType,
 			title: $scope.title,
