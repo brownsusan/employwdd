@@ -31,8 +31,10 @@ angular.module('employwddApp').controller('AddPostCtrl', function($scope, FireCo
 
 	$scope.addPost = function() {
 		$scope.posts = FireConn.$child('posts');
+		// Need Users to set the owner
 		// Format Data
 		$scope.newPost = {
+			owner :  $scope.loginObj.user.id,
 			postType: $scope.postType,
 			title: $scope.title,
 			positionNeeded: $scope.positionNeeded,
@@ -65,7 +67,6 @@ angular.module('employwddApp').controller('AddPostCtrl', function($scope, FireCo
 		}
 		
 		$scope.posts.$add($scope.newPost);
-			
 		// Firebase Connection - connect to the posts collection
 		// Push into firebase
 		
