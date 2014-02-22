@@ -27,6 +27,13 @@ angular.module('employwddApp').controller('PostCtrl', function($scope, FireConn,
 	
 });
 
+angular.module('employwddApp').controller('EditPostCtrl', function($scope, FireConn, $routeParams) {
+	
+	$scope.post = FireConn.$child('posts').$child($routeParams.priority);
+	$scope.postPriority = $routeParams.priority;
+	
+});
+
 angular.module('employwddApp').controller('PostsCtrl', function($scope, FireConn) {
 	$scope.pageHeading = 'All Posts';
 	$scope.posts = FireConn.$child('posts');

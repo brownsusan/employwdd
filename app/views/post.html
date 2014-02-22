@@ -45,9 +45,8 @@
 		{{post.description}}
 	</p>
 </div>
-<!-- Hide this button if the user does not own the post -->
 <button ng-show="post.ownerId == loginObj.user.id" class="btn btn-default btn-block btn-sm">
-	Edit This Post
+	<a href="#/edit-post/{{postPriority}}">Edit This Post</a>
 </button>
 <hr>
 <div ng-hide="post.ownerId == loginObj.user.id" class="well">

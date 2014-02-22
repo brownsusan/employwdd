@@ -7,10 +7,14 @@ app.config(function($routeProvider) {
 		controller : 'MainCtrl'
 	});
 
-	// Will eventually need /:postNumber
 	$routeProvider.when('/post/:priority', {
 		templateUrl : 'views/post.html',
 		controller : 'PostCtrl'
+	});
+	
+	$routeProvider.when('/edit-post/:priority', {
+		templateUrl : 'views/edit-post.html',
+		controller : 'EditPostCtrl'
 	});
 
 	$routeProvider.when('/posts', {
