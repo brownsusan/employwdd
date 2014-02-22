@@ -8,7 +8,7 @@ app.config(function($routeProvider) {
 	});
 
 	// Will eventually need /:postNumber
-	$routeProvider.when('/post', {
+	$routeProvider.when('/post/:priority', {
 		templateUrl : 'views/post.html',
 		controller : 'PostCtrl'
 	});

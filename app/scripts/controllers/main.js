@@ -5,9 +5,24 @@ angular.module('employwddApp').controller('MainCtrl', function($scope) {
 });
 
 
-angular.module('employwddApp').controller('PostCtrl', function($scope) {
-	
+
+
+
+
+
+
+
+angular.module('employwddApp').controller('PostCtrl', function($scope, FireConn, $routeParams) {
+	$scope.post = FireConn.$child('posts').$child($routeParams.priority);
 });
+
+
+
+
+
+
+
+
 
 
 angular.module('employwddApp').controller('PostsCtrl', function($scope, FireConn) {
@@ -34,8 +49,8 @@ angular.module('employwddApp').controller('AddPostCtrl', function($scope, FireCo
 		// Need Users to set the owner
 		// Format Data
 		$scope.newPost = {
-			uuid : uuid.v4(),
-			owner :  $scope.loginObj.user.id,
+			ownerId :  $scope.loginObj.user.id,
+			ownerusername : $scope.loginObj.user.username,
 			postType: $scope.postType,
 			title: $scope.title,
 			positionNeeded: $scope.positionNeeded,
@@ -76,6 +91,9 @@ angular.module('employwddApp').controller('AddPostCtrl', function($scope, FireCo
 });
 
 angular.module('employwddApp').controller('DashboardCtrl', function($scope, FireConn) {
+	
+	console.log(FireConn);
+	
 	$scope.posts = FireConn.$child('posts');
 });
 
