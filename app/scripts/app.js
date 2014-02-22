@@ -22,13 +22,13 @@ app.config(function($routeProvider) {
 		controller : 'PostsCtrl'
 	});
 	//Using the posts view with filters written into the controllers
-	$routeProvider.when('/posts/positions', {
-		templateUrl : 'views/posts.html',
+	$routeProvider.when('/positions', {
+		templateUrl : 'views/position-posts.html',
 		controller : 'PostsPositionsCtrl'
 	});
 	//Using the posts view with filters written into the controllers
-	$routeProvider.when('/posts/freelance', {
-		templateUrl : 'views/posts.html',
+	$routeProvider.when('/freelance', {
+		templateUrl : 'views/freelance-posts.html',
 		controller : 'PostsFreelanceCtrl'
 	});
 

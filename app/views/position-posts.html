@@ -2,7 +2,7 @@
 <a href="#/freelance">Freelance Sheit</a>
 <a href="#/positions">Positions And Dick</a>
 <div class="row marketing">
-	<div ng-repeat="($priority, post) in posts" class="well">
+	<div ng-repeat="($priority, post) in posts" ng-if="post.postType == 'position'" class="well">
 		<a ng-href="#/post/{{$priority}}">
 			<h2>{{post.title}}</h2>
 			<img src="images/icon/{{post.postType}}.png" />
