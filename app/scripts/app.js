@@ -49,10 +49,10 @@ app.config(function($routeProvider) {
 
 
 	//will eventually need /:postNumber
-	$routeProvider.when('/edit', {
-		templateUrl : 'views/edit-post.html',
-		controller : 'EditPostCtrl'
-	});
+	// $routeProvider.when('/edit', {
+		// templateUrl : 'views/edit-post.html',
+		// controller : 'EditPostCtrl'
+	// });
 
 	$routeProvider.otherwise({
 		redirectTo : '/'

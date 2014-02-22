@@ -94,7 +94,3 @@ angular.module('employwddApp').controller('DashboardCtrl', function($scope, Fire
 	$scope.posts = FireConn.$child('posts');
 });
 
-angular.module('employwddApp').controller('EditPostCtrl', function($scope) {
-
-});
-
