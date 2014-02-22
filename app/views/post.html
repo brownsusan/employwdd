@@ -50,32 +50,31 @@
 	Edit This Post
 </button>
 <hr>
-<div class="well">
+<div ng-hide="post.ownerId == loginObj.user.id" class="well">
 	<strong>Request This Job</strong>
 	<br />
 	<div class="form-group">
 		<label>Name:</label>
-		<input type="text" class="form-control" placeholder="Github info"/>
+		<input type="text" class="form-control" ng-model="ownerName" placeholder="Susan Brown"/>
 	</div>
 	<div class="form-group">
 		<label>Phone Number:</label>
-		<input type="text" class="form-control" placeholder="248-880-3127"/>
+		<input type="text" class="form-control" ng-model="phoneNum" placeholder="248-880-3127"/>
 	</div>
 	<div class="form-group">
 		<label>Email:</label>
-		<input type="text" class="form-control" placeholder="sbrwn.sb@gmail.com"/>
+		<input type="text" class="form-control" ng-model="email" placeholder="sbrwn.sb@gmail.com"/>
 	</div>
 	<br />
-	<button class="btn btn-success btn-block">
+	<button class="btn btn-success btn-block" ng-click="addRequest()">
 		Send Request
 	</button>
 </div>
 
 <strong>Requests</strong>
-<!-- Will eventually be in an ng-repeat -->
-<div>
-	<img class="glyphicon img-circle" src="{{loginObj.user.thirdPartyUserData.avatar_url}}" />
-	<span>First Last</span>
-	<span>248-880-3127</span>
-	<span>sbrwn.sb@gmail.com</span>
+<div ng-repeat="request in requests">
+	<img class="glyphicon img-circle" ng-src="{{request.gravatar}}" />
+	<span>{{request.ownerName}}</span>
+	<span>{{request.phoneNum}}</span>
+	<span>{{request.email}}</span>
 </div>

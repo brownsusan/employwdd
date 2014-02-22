@@ -4,61 +4,56 @@ angular.module('employwddApp').controller('MainCtrl', function($scope) {
 
 });
 
-
-
-
-
-
-
-
-
 angular.module('employwddApp').controller('PostCtrl', function($scope, FireConn, $routeParams) {
 	$scope.post = FireConn.$child('posts').$child($routeParams.priority);
+	$scope.requests = FireConn.$child('requests');
+	
+	$scope.addRequest = function() {
+		$scope.newRequest = {
+			'postPriority' : $routeParams.priority,
+			'ownerId' : $scope.loginObj.user.id,
+			'ownerUsername' : $scope.loginObj.user.username,
+			'ownerName' : $scope.ownerName,
+			'phoneNum' : $scope.phoneNum,
+			'email' : $scope.email,
+			'gravatar' : $scope.loginObj.user.thirdPartyUserData.avatar_url
+		}
+		// console.log($scope.newRequest);
+		$scope.requests.$add($scope.newRequest);
+	}
+	
 });
-
-
-
-
-
-
-
-
-
 
 angular.module('employwddApp').controller('PostsCtrl', function($scope, FireConn) {
 	$scope.pageHeading = 'All Posts';
 	$scope.posts = FireConn.$child('posts');
 });
 
-
 angular.module('employwddApp').controller('PostsPositionsCtrl', function($scope) {
 	$scope.pageHeading = 'Open Positions';
 });
-
 
 angular.module('employwddApp').controller('PostsFreelanceCtrl', function($scope) {
 	$scope.pageHeading = 'Freelance Opportunities';
 });
 
 angular.module('employwddApp').controller('AddPostCtrl', function($scope, FireConn) {
-	
 
 	$scope.addPost = function() {
 		$scope.posts = FireConn.$child('posts');
-		// Need Users to set the owner
-		// Format Data
+
 		$scope.newPost = {
-			ownerId :  $scope.loginObj.user.id,
-			ownerUsername : $scope.loginObj.user.username,
-			postType: $scope.postType,
-			title: $scope.title,
-			positionNeeded: $scope.positionNeeded,
-			client: $scope.client,
-			compensation: $scope.compensation,
-			reqTech: {
+			'ownerId' : $scope.loginObj.user.id,
+			'ownerUsername' : $scope.loginObj.user.username,
+			'postType' : $scope.postType,
+			'title' : $scope.title,
+			'positionNeeded' : $scope.positionNeeded,
+			'client' : $scope.client,
+			'compensation' : $scope.compensation,
+			'reqTech' : {
 				'design' : {
 					'photoshop' : $scope.photoshop,
-					'illustrator': $scope.illustrator,
+					'illustrator' : $scope.illustrator,
 					'indesign' : $scope.indesign
 				},
 				'frontend' : {
@@ -78,14 +73,10 @@ angular.module('employwddApp').controller('AddPostCtrl', function($scope, FireCo
 					'mysql' : $scope.mysql
 				}
 			},
-			description: $scope.description 
+			'description' : $scope.description
 		}
-		
-		$scope.posts.$add($scope.newPost);
-		// Firebase Connection - connect to the posts collection
-		// Push into firebase
-		
 
+		$scope.posts.$add($scope.newPost);
 	}
 });
 
