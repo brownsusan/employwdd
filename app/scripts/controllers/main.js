@@ -6,12 +6,14 @@ angular.module('employwddApp').controller('MainCtrl', function($scope) {
 
 
 angular.module('employwddApp').controller('PostCtrl', function($scope) {
-
+	
 });
 
 
-angular.module('employwddApp').controller('PostsCtrl', function($scope) {
+angular.module('employwddApp').controller('PostsCtrl', function($scope, FireConn) {
 	$scope.pageHeading = 'All Posts';
+	$scope.posts = FireConn.$child('posts');
+	// console.log($scope.posts);
 });
 
 
@@ -39,24 +41,24 @@ angular.module('employwddApp').controller('AddPostCtrl', function($scope, FireCo
 			reqTech: {
 				'design' : {
 					'photoshop' : $scope.photoshop,
-					'illustrator': $scope.photoshop,
-					'indesign' : $scope.photoshop
+					'illustrator': $scope.illustrator,
+					'indesign' : $scope.indesign
 				},
 				'frontend' : {
-					'html' : $scope.photoshop,
-					'css' : $scope.photoshop,
-					'js' : $scope.photoshop
+					'html' : $scope.html,
+					'css' : $scope.css,
+					'javascript' : $scope.javascript
 				},
 				'backend' : {
-					'php' : $scope.photoshop,
-					'node' : $scope.photoshop,
-					'python' : $scope.photoshop,
-					'ruby' : $scope.photoshop,
-					'java' : $scope.photoshop
+					'php' : $scope.php,
+					'node' : $scope.node,
+					'python' : $scope.python,
+					'ruby' : $scope.ruby,
+					'java' : $scope.javaSS
 				},
 				'database' : {
-					'mongo' : $scope.photoshop,
-					'sql' : $scope.photoshop
+					'mongo' : $scope.mongo,
+					'mysql' : $scope.mysql
 				}
 			},
 			description: $scope.description 
