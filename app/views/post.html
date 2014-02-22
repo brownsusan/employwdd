@@ -54,8 +54,11 @@
 		{{post.description}}
 	</p>
 </div>
+<button ng-show="post.ownerId == loginObj.user.id" class="btn btn-default btn-block btn-sm" ng-click="deletePost()">
+	<a>Delete This Post</a>
+</button>
 <button ng-show="post.ownerId == loginObj.user.id" class="btn btn-default btn-block btn-sm">
-	<a href="#/edit-post/{{postPriority}}">Edit This Post</a>
+	<a ng-href="#/edit-post/{{postPriority}}">Edit This Post</a>
 </button>
 <hr>
 <div ng-hide="post.ownerId == loginObj.user.id" class="well">

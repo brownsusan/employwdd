@@ -6,6 +6,7 @@ angular.module('employwddApp').controller('MainCtrl', function($scope) {
 
 angular.module('employwddApp').controller('PostCtrl', function($scope, FireConn, $routeParams) {
 
+	$scope.posts = FireConn.$child('posts');
 	$scope.post = FireConn.$child('posts').$child($routeParams.priority);
 	$scope.postPriority = $routeParams.priority;
 
@@ -23,6 +24,10 @@ angular.module('employwddApp').controller('PostCtrl', function($scope, FireConn,
 		}
 		// console.log($scope.newRequest);
 		$scope.requests.$add($scope.newRequest);
+	}
+	
+	$scope.deletePost = function(){
+		$scope.post.$remove();
 	}
 });
 
