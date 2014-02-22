@@ -5,12 +5,12 @@ angular.module('employwddApp').controller('MainCtrl', function($scope) {
 });
 
 angular.module('employwddApp').controller('PostCtrl', function($scope, FireConn, $routeParams) {
-	
+
 	$scope.post = FireConn.$child('posts').$child($routeParams.priority);
 	$scope.postPriority = $routeParams.priority;
-	
+
 	$scope.requests = FireConn.$child('requests');
-	
+
 	$scope.addRequest = function() {
 		$scope.newRequest = {
 			'postPriority' : $routeParams.priority,
@@ -24,14 +24,17 @@ angular.module('employwddApp').controller('PostCtrl', function($scope, FireConn,
 		// console.log($scope.newRequest);
 		$scope.requests.$add($scope.newRequest);
 	}
-	
 });
 
 angular.module('employwddApp').controller('EditPostCtrl', function($scope, FireConn, $routeParams) {
-	
+
 	$scope.post = FireConn.$child('posts').$child($routeParams.priority);
 	$scope.postPriority = $routeParams.priority;
-	
+
+	$scope.updatePost = function(){
+		$scope.post.$save();
+	}
+
 });
 
 angular.module('employwddApp').controller('PostsCtrl', function($scope, FireConn) {
