@@ -50,7 +50,7 @@ angular.module('employwddApp').controller('AddPostCtrl', function($scope, FireCo
 		// Format Data
 		$scope.newPost = {
 			ownerId :  $scope.loginObj.user.id,
-			ownerusername : $scope.loginObj.user.username,
+			ownerUsername : $scope.loginObj.user.username,
 			postType: $scope.postType,
 			title: $scope.title,
 			positionNeeded: $scope.positionNeeded,

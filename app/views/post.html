@@ -1,38 +1,52 @@
-<h1>Prototype post test</h1>
+<h1>{{post.title}}</h1>
 <div>
 	<strong>Posted By: </strong>
-	<span>{{post.title}}</span>
+	<span>{{post.ownerUsername}}</span>
 </div>
-<div class="pull-left">
-	<img src="/images/icon/position.png" />
+<div ng-show="post.postType == 'position'" class="pull-left">
+	<!-- <img src="/images/icon/position.png" /> -->
 	<br/>
-	<span>Position Opening</span>
+	<img ng-src="images/icon/position.png" />
 </div>
-<div>
-	<img src="/images/icon/back-end.png" />
+<div ng-hide="post.postType == 'position'" class="pull-left">
+	<!-- <img src="/images/icon/position.png" /> -->
+	<br/>
+	<img ng-src="images/icon/freelance.png" />
+</div>
+<div ng-show="post.postType == 'position'">
+	<!-- <img src="/images/icon/back-end.png" /> -->
 	<br />
-	<span>Back-End Dev</span>
+	<img ng-src="images/icon/{{post.positionNeeded}}.png" />
 </div>
 <div>
 	<strong>Required Technology: </strong><br />
 	<div>
-		<img src="/images/back-end/java_icon.png" /><br />
-		<span>Java</span>
+		<!-- <img src="/images/back-end/java_icon.png" /><br /> -->
+		<div ng-repeat="tech in post.reqTech.design" ng-if="tech">{{tech}}</div>
+		<div ng-repeat="tech in post.reqTech.frontend" ng-if="tech">{{tech}}</div>
+		<div ng-repeat="tech in post.reqTech.backend" ng-if="tech">{{tech}}</div>
+		<div ng-repeat="tech in post.reqTech.database" ng-if="tech">{{tech}}</div>
 	</div>
 </div>
-<div>
+<div ng-show="post.compensation == 'paid'">
 	<strong>Compensation: </strong>
-	<span>None</span>
+	<img ng-src="/images/icon/paid.png" />
+	<span>Paid</span>
+</div>
+<div ng-hide="post.compensation == 'paid'">
+	<strong>Compensation: </strong>
+	<img ng-src="/images/icon/unpaid.png" />
+	<span>Unpaid</span>
 </div>
 <div>
 	<strong>Description:</strong>
 	<br />
 	<p>
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		{{post.description}}
 	</p>
 </div>
 <!-- Hide this button if the user does not own the post -->
-<button class="btn btn-success btn-block">
+<button class="btn btn-default btn-block btn-sm">
 	Edit This Post
 </button>
 <hr>
