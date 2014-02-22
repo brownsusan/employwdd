@@ -5,7 +5,10 @@ angular.module('employwddApp').controller('MainCtrl', function($scope) {
 });
 
 angular.module('employwddApp').controller('PostCtrl', function($scope, FireConn, $routeParams) {
+	
 	$scope.post = FireConn.$child('posts').$child($routeParams.priority);
+	$scope.postPriority = $routeParams.priority;
+	
 	$scope.requests = FireConn.$child('requests');
 	
 	$scope.addRequest = function() {
