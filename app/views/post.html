@@ -46,7 +46,7 @@
 	</p>
 </div>
 <!-- Hide this button if the user does not own the post -->
-<button class="btn btn-default btn-block btn-sm">
+<button ng-show="post.ownerId == loginObj.user.id" class="btn btn-default btn-block btn-sm">
 	Edit This Post
 </button>
 <hr>
