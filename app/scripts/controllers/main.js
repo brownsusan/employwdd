@@ -42,13 +42,16 @@ angular.module('employwddApp').controller('PostsCtrl', function($scope, FireConn
 	$scope.posts = FireConn.$child('posts');
 });
 
-angular.module('employwddApp').controller('PostsPositionsCtrl', function($scope) {
-	$scope.pageHeading = 'Open Positions';
-});
-
-angular.module('employwddApp').controller('PostsFreelanceCtrl', function($scope) {
-	$scope.pageHeading = 'Freelance Opportunities';
-});
+// angular.module('employwddApp').controller('PostsPositionsCtrl', function($scope) {
+	// $scope.pageHeading = 'Open Positions';
+	// // $scope.posts = FireConn.$child('posts').$filter(postType='position');
+	// // console.log($scope.posts);
+// });
+// 
+// angular.module('employwddApp').controller('PostsFreelanceCtrl', function($scope) {
+	// $scope.pageHeading = 'Freelance Opportunities';
+	// // $scope.posts = FireConn.$child('posts');
+// });
 
 angular.module('employwddApp').controller('AddPostCtrl', function($scope, FireConn) {
 
