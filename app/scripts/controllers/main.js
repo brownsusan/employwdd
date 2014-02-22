@@ -28,7 +28,6 @@ angular.module('employwddApp').controller('PostCtrl', function($scope, FireConn,
 angular.module('employwddApp').controller('PostsCtrl', function($scope, FireConn) {
 	$scope.pageHeading = 'All Posts';
 	$scope.posts = FireConn.$child('posts');
-	// console.log($scope.posts);
 });
 
 
@@ -91,9 +90,6 @@ angular.module('employwddApp').controller('AddPostCtrl', function($scope, FireCo
 });
 
 angular.module('employwddApp').controller('DashboardCtrl', function($scope, FireConn) {
-	
-	console.log(FireConn);
-	
 	$scope.posts = FireConn.$child('posts');
 });
 
