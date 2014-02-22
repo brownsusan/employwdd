@@ -14,7 +14,7 @@
 		<input type="text" ng-model="title" class="form-control" placeholder="Basic brochure site - quick and simple!"/>
 	</div>
 
-	<div class="form-group">
+	<div class="form-group" ng-show="postType == 'position'">
 		<label>Position Needed</label>
 		<br />
 		<label id="design">
@@ -31,7 +31,7 @@
 			<img src="/images/icon/db.png" /><br />Database</label>
 	</div>
 
-	<div class="form-group">
+	<div class="form-group" ng-show="postType == 'freelance'">
 		<label>Client</label>
 		<br />
 		<input type="text" class="form-control" ng-model="client" placeholder="Some Client Name"/>
@@ -51,8 +51,8 @@
 	<div class="form-group">
 		<label>Required Technologies</label>
 
-		<fieldset id="design-tech">
-			<div>
+		<fieldset id="reqTech">
+			<div ng-show="postType == 'freelance' || positionNeeded == 'design'">
 				<label>Design</label>
 				<div class="checkbox">
 					<label for="photoshop">
@@ -71,7 +71,7 @@
 						<img src="/images/design/indesign.png" /><br />In Design</label>
 				</div>
 			</div>
-			<div>
+			<div ng-show="postType == 'freelance' || positionNeeded == 'frontend'">
 				<label>Front-End</label>
 				<div class="checkbox">
 					<label for="html">
@@ -89,7 +89,7 @@
 						<img src="/images/frontend/javascript.png" /><br />javascript</label>
 				</div>
 			</div>
-			<div>
+			<div ng-show="postType == 'freelance' || positionNeeded == 'backend'">
 				<label>Back-End</label>
 				<div class="checkbox">
 					<label for="php">
@@ -117,7 +117,7 @@
 						<img src="/images/backend/java.png" /><br />Java</label>
 				</div>
 			</div>
-			<div>
+			<div ng-show="postType == 'freelance' || positionNeeded == 'database'">
 				<label>Database</label>
 				<div class="checkbox">
 					<label for="mongo">
