@@ -74,8 +74,8 @@ angular.module('employwddApp').controller('AddPostCtrl', function($scope, FireCo
 	}
 });
 
-angular.module('employwddApp').controller('DashboardCtrl', function($scope) {
-
+angular.module('employwddApp').controller('DashboardCtrl', function($scope, FireConn) {
+	$scope.posts = FireConn.$child('posts');
 });
 
 angular.module('employwddApp').controller('EditPostCtrl', function($scope) {
