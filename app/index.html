@@ -51,7 +51,7 @@
 							<a ng-hide="loginObj.user" ng-click="loginObj.$login('github')">Login with github</a>
 						</li>
 						<li>
-							<a ng-show="loginObj.user" ng-click="loginObj.$logout()">Logout, {{loginObj.user.username}}</a>
+							<a ng-show="loginObj.user" ng-click="loginObj.$logout()" href="#/">Logout, {{loginObj.user.username}}</a>
 						</li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
