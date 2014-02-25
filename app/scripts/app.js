@@ -47,13 +47,6 @@ app.config(function($routeProvider) {
 		controller : 'DashboardCtrl'
 	});
 
-
-	//will eventually need /:postNumber
-	// $routeProvider.when('/edit', {
-		// templateUrl : 'views/edit-post.html',
-		// controller : 'EditPostCtrl'
-	// });
-
 	$routeProvider.otherwise({
 		redirectTo : '/'
 	});
