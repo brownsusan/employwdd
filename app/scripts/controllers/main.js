@@ -45,6 +45,8 @@ angular.module('employwddApp').controller('EditPostCtrl', function($scope, FireC
 angular.module('employwddApp').controller('PostsCtrl', function($scope, FireConn) {
 	$scope.pageHeading = 'All Posts';
 	$scope.posts = FireConn.$child('posts');
+	
+	
 });
 
 angular.module('employwddApp').controller('PostsPositionsCtrl', function($scope, FireConn) {

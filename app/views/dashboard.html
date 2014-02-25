@@ -20,10 +20,13 @@
 
 <!-- This should link to the post it is attached to -->
 <div class="row marketing">
-	<div class="well" ng-repeat="request in requests" ng-if="request.ownerId == loginObj.user.id">
-		<img class="glyphicon img-circle" ng-src="{{request.gravatar}}" />
-		<span>{{request.ownerName}}</span>
-		<span>{{request.phoneNum}}</span>
-		<span>{{request.email}}</span>
+	<div ng-repeat="request in requests" ng-if="request.ownerId == loginObj.user.id">
+		<a ng-href="#/post/{{request.postPriority}}">
+		<div class="well">
+			<img class="glyphicon img-circle" ng-src="{{request.gravatar}}" />
+			<span>{{request.ownerName}}</span>
+			<span>{{request.phoneNum}}</span>
+			<span>{{request.email}}</span>
+		</div></a>
 	</div>
 </div>

@@ -2,16 +2,19 @@
 <a href="#/freelance">Freelance</a>
 <a href="#/positions">Open Positions</a>
 <div class="row marketing">
-	<div ng-repeat="($priority, post) in posts" class="well">
+	<div ng-repeat="($priority, post) in posts">
 		<a ng-href="#/post/{{$priority}}">
+		<div class="well">
 			<h2>{{post.title}}</h2>
 			<img src="images/icon/{{post.postType}}.png" />
 			<img ng-if="post.postType == 'position'" src="images/icon/{{post.positionNeeded}}.png" />
-			<img ng-if="post.postType == 'position'" ng-repeat="tech in post.reqTech[post.positionNeeded] | limitTo:2"  src="images/{{post.positionNeeded}}/{{tech}}.png"/>
-			<img ng-if="post.postType == 'freelance'" ng-repeat="tech in post.reqTech.design | limitTo:1"  src="images/design/{{tech}}.png"/>
-			<img ng-if="post.postType == 'freelance'" ng-repeat="tech in post.reqTech.frontend | limitTo:1"  src="images/frontend/{{tech}}.png"/>
-			<img ng-if="post.postType == 'freelance'" ng-repeat="tech in post.reqTech.backend | limitTo:1"  src="images/backend/{{tech}}.png"/>
-			<img ng-if="post.postType == 'freelance'" ng-repeat="tech in post.reqTech.database | limitTo:1"  src="images/db/{{tech}}.png"/>
-		</a>
+			<div ng-if="post.postType == 'position'">
+				<img ng-repeat="tech in post.reqTech[post.positionNeeded]" src="images/{{post.positionNeeded}}/{{tech}}.png"/>
+			</div>
+			<img ng-if="post.postType == 'freelance'" ng-repeat="tech in post.reqTech.design"  src="images/design/{{tech}}.png"/>
+			<img ng-if="post.postType == 'freelance'" ng-repeat="tech in post.reqTech.frontend"  src="images/frontend/{{tech}}.png"/>
+			<img ng-if="post.postType == 'freelance'" ng-repeat="tech in post.reqTech.backend"  src="images/backend/{{tech}}.png"/>
+			<img ng-if="post.postType == 'freelance'" ng-repeat="tech in post.reqTech.database"  src="images/db/{{tech}}.png"/>
+		</div> </a>
 	</div>
 </div>

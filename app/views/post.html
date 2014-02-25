@@ -54,12 +54,20 @@
 		{{post.description}}
 	</p>
 </div>
-<button ng-show="post.ownerId == loginObj.user.id" class="btn btn-default btn-block btn-sm" ng-click="deletePost()">
-	<a>Delete This Post</a>
-</button>
-<button ng-show="post.ownerId == loginObj.user.id" class="btn btn-default btn-block btn-sm">
-	<a ng-href="#/edit-post/{{postPriority}}">Edit This Post</a>
-</button>
+
+<div ng-show="post.ownerId == loginObj.user.id">
+	<!-- This needs a confirm action affordance -->
+	<a ng-href="#/dashboard">
+	<button class="btn btn-default btn-block btn-sm" ng-click="deletePost()">
+		Delete This Post
+	</button></a>
+
+	<a ng-href="#/edit-post/{{postPriority}}">
+	<button class="btn btn-default btn-block btn-sm">
+		Edit This Post
+	</button> </a>
+</div>
+
 <hr>
 <div ng-hide="post.ownerId == loginObj.user.id" class="well">
 	<strong>Request This Job</strong>
