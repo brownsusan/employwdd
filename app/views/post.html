@@ -57,15 +57,13 @@
 
 <div ng-show="post.ownerId == loginObj.user.id">
 	<!-- This needs a confirm action affordance -->
-	<a ng-href="#/dashboard">
-	<button class="btn btn-default btn-block btn-sm" ng-click="deletePost()">
-		Delete This Post
-	</button></a>
-
-	<a ng-href="#/edit-post/{{postPriority}}">
-	<button class="btn btn-default btn-block btn-sm">
+	<a ng-href="#/dashboard"> <a ng-href="#/edit-post/{{postPriority}}">
+	<button class="btn btn-default btn-block btn-lg">
 		Edit This Post
 	</button> </a>
+	<button class="btn btn-danger btn-block btn-lg" ng-click="deletePost()">
+		Delete This Post
+	</button></a>
 </div>
 
 <hr>
@@ -85,7 +83,7 @@
 		<input type="text" class="form-control" ng-model="email" placeholder="sbrwn.sb@gmail.com"/>
 	</div>
 	<br />
-	<button class="btn btn-success btn-block" ng-click="addRequest()">
+	<button class="btn btn-success btn-block btn-lg" ng-click="addRequest()">
 		Send Request
 	</button>
 </div>
