@@ -1,6 +1,17 @@
 <h1>Add A Post</h1>
 <form>
 	<div class="form-group">
+		<label>Title</label>
+		<input type="text" ng-model="title" class="form-control" placeholder="Basic brochure site - quick and simple!"/>
+	</div>
+	
+	<div class="form-group">
+		<label for="description">Description</label>
+		<span class="help-block">Include any additional info, such as required technology, frameworks or libraries, project details, etc.</span>
+		<textarea name="description" class="form-control" ng-model="description"></textarea>
+	</div>
+	
+	<div class="form-group">
 		<label id="freelance">
 			<input type="radio" name="postType" ng-model="postType" ng-value="'freelance'"/>
 			<img src="/images/icon/freelance.png" />
@@ -11,11 +22,6 @@
 			<img src="/images/icon/position.png" />
 			<br />
 			Open Position</label>
-	</div>
-
-	<div class="form-group">
-		<label>Title</label>
-		<input type="text" ng-model="title" class="form-control" placeholder="Basic brochure site - quick and simple!"/>
 	</div>
 
 	<div class="form-group" ng-show="postType == 'position'">
@@ -174,12 +180,6 @@
 			</div>
 		</fieldset>
 
-	</div>
-
-	<div class="form-group">
-		<label for="description">Description</label>
-		<span class="help-block">Include any additional info, such as required technology, frameworks or libraries, project details, etc.</span>
-		<textarea name="description" class="form-control" ng-model="description"></textarea>
 	</div>
 	<!-- This should eventually redirect to the post details - need to find the priority that is returned -->
 	<a ng-href="#/dashboard">

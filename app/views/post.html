@@ -3,6 +3,13 @@
 	<strong>Posted By: </strong>
 	<span>{{post.ownerUsername}}</span>
 </div>
+<div>
+	<strong>Description:</strong>
+	<br />
+	<p>
+		{{post.description}}
+	</p>
+</div>
 <div ng-show="post.postType == 'position'" class="pull-left">
 	<!-- <img src="/images/icon/position.png" /> -->
 	<br/>
@@ -46,13 +53,6 @@
 	<strong>Compensation: </strong>
 	<img ng-src="/images/icon/unpaid.png" />
 	<span>Unpaid</span>
-</div>
-<div>
-	<strong>Description:</strong>
-	<br />
-	<p>
-		{{post.description}}
-	</p>
 </div>
 
 <div ng-show="post.ownerId == loginObj.user.id">
