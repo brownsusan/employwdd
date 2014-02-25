@@ -86,7 +86,7 @@ angular.module('employwddApp').controller('AddPostCtrl', function($scope, FireCo
 					'node' : $scope.node,
 					'python' : $scope.python,
 					'ruby' : $scope.ruby,
-					'java' : $scope.javaSS
+					'javaSS' : $scope.javaSS
 				},
 				'database' : {
 					'mongo' : $scope.mongo,
