@@ -13,15 +13,15 @@
 <div ng-show="post.postType == 'position'" class="pull-left">
 	<!-- <img src="/images/icon/position.png" /> -->
 	<br/>
-	<img ng-src="images/icon/position.png" />
+	<img src="images/icon/position.png" />
 </div>
 <div ng-hide="post.postType == 'position'" class="pull-left">
 	<!-- <img src="/images/icon/position.png" /> -->
 	<br/>
-	<img ng-src="images/icon/freelance.png" />
+	<img src="images/icon/freelance.png" />
 </div>
-<div ng-show="post.postType == 'position'">
-	<!-- <img src="/images/icon/back-end.png" /> -->
+<div ng-if="post.postType == 'position'">
+	<!-- <img src="/images/icon/backend.png" /> -->
 	<br />
 	<img ng-src="images/icon/{{post.positionNeeded}}.png" />
 </div>
@@ -29,7 +29,7 @@
 	<strong>Required Technology: </strong>
 	<br />
 	<div>
-		<!-- <img src="/images/back-end/java_icon.png" /><br /> -->
+		<!-- <img src="/images/backend/java_icon.png" /><br /> -->
 		<div ng-repeat="tech in post.reqTech.design" ng-if="tech">
 			{{tech}}
 		</div>
@@ -46,12 +46,12 @@
 </div>
 <div ng-show="post.compensation == 'paid'">
 	<strong>Compensation: </strong>
-	<img ng-src="/images/icon/paid.png" />
+	<img src="/images/icon/paid.png" />
 	<span>Paid</span>
 </div>
 <div ng-hide="post.compensation == 'paid'">
 	<strong>Compensation: </strong>
-	<img ng-src="/images/icon/unpaid.png" />
+	<img src="/images/icon/unpaid.png" />
 	<span>Unpaid</span>
 </div>
 
@@ -91,7 +91,7 @@
 <strong>Requests</strong>
 <div ng-repeat="request in requests" ng-if="postPriority == request.postPriority">
 	<div>
-		<img class="glyphicon img-circle" ng-src="{{request.gravatar}}" />
+		<img ng-src="{{request.gravatar}}" class="glyphicon img-circle" />
 		<span>{{request.ownerName}}</span>
 		<span>{{request.phoneNum}}</span>
 		<span>{{request.email}}</span>

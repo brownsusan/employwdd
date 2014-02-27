@@ -4,17 +4,31 @@
 <div class="row marketing">
 	<div ng-repeat="($priority, post) in posts">
 		<a ng-href="#/post/{{$priority}}">
-		<div class="well">
-			<h2>{{post.title}}</h2>
-			<img src="images/icon/{{post.postType}}.png" />
-			<img ng-if="post.postType == 'position'" src="images/icon/{{post.positionNeeded}}.png" />
-			<div ng-if="post.postType == 'position'">
-				<img ng-repeat="tech in post.reqTech[post.positionNeeded]" src="images/{{post.positionNeeded}}/{{tech}}.png"/>
+			
+			<div class="well">
+				
+				<h2>{{post.title}}</h2>
+				
+				<img ng-src="images/icon/{{post.postType}}.png" />
+				
+				<!-- show the icons for the post -->
+				<div ng-if="post.postType == 'position'" >
+					<img ng-src="images/icon/{{post.positionNeeded}}.png" />
+					<img ng-if="tech != false" ng-repeat="tech in post.reqTech[post.positionNeeded]" ng-src="images/{{post.positionNeeded}}/{{tech}}.png"/>
+				</div>
+				
+				<!-- show the icons for freelance -->
+				<!-- these need to be seperated here  -->
+				<!-- beecause of the structure of the firebase -->
+				<div ng-if="post.postType == 'freelance'"  >
+					<img ng-if="tech != false"  ng-repeat="tech in post.reqTech.design"  ng-src="images/design/{{tech}}.png"/>
+					<img ng-if="tech != false" ng-repeat="tech in post.reqTech.frontend"  ng-src="images/frontend/{{tech}}.png"/>
+					<img ng-if="tech != false" ng-repeat="tech in post.reqTech.backend"  ng-src="images/backend/{{tech}}.png"/>
+					<img ng-if="tech != false" ng-repeat="tech in post.reqTech.database"  ng-src="images/database/{{tech}}.png"/>
+				</div>
+			
 			</div>
-			<img ng-if="post.postType == 'freelance'" ng-repeat="tech in post.reqTech.design"  src="images/design/{{tech}}.png"/>
-			<img ng-if="post.postType == 'freelance'" ng-repeat="tech in post.reqTech.frontend"  src="images/frontend/{{tech}}.png"/>
-			<img ng-if="post.postType == 'freelance'" ng-repeat="tech in post.reqTech.backend"  src="images/backend/{{tech}}.png"/>
-			<img ng-if="post.postType == 'freelance'" ng-repeat="tech in post.reqTech.database"  src="images/db/{{tech}}.png"/>
-		</div> </a>
+			
+		</a>
 	</div>
 </div>

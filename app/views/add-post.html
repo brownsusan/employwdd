@@ -36,15 +36,15 @@
 			<input type="radio" name="positionNeeded" ng-model="positionNeeded" ng-value="'frontend'"/>
 			<img src="/images/icon/frontend.png" />
 			<br />
-			Front-End Dev</label>
+			Frontend Dev</label>
 		<label id="back-end">
 			<input type="radio" name="positionNeeded" ng-model="positionNeeded" ng-value="'backend'"/>
 			<img src="/images/icon/backend.png" />
 			<br />
-			Back-End Dev</label>
+			Backend Dev</label>
 		<label id="database">
 			<input type="radio" name="positionNeeded" ng-model="positionNeeded" ng-value="'database'"/>
-			<img src="/images/icon/db.png" />
+			<img src="/images/icon/database.png" />
 			<br />
 			Database</label>
 	</div>
@@ -100,7 +100,7 @@
 				</div>
 			</div>
 			<div ng-show="postType == 'freelance' || positionNeeded == 'frontend'">
-				<label>Front-End</label>
+				<label>Frontend</label>
 				<div class="checkbox">
 					<label for="html">
 						<input id="html" type="checkbox" name="frontend" ng-model="html"  ng-true-value="html">
@@ -166,14 +166,14 @@
 				<div class="checkbox">
 					<label for="mongo">
 						<input id="mongo" type="checkbox" name="database" ng-model="mongo" ng-true-value="mongo" >
-						<img src="/images/db/mongo.png" />
+						<img src="/images/database/mongo.png" />
 						<br />
 						Mongo DB</label>
 				</div>
 				<div class="checkbox">
 					<label for="mysql">
 						<input id="mysql" type="checkbox" name="database" ng-model="mysql" ng-true-value="mysql">
-						<img src="/images/db/mysql.png" />
+						<img src="/images/database/mysql.png" />
 						<br />
 						My SQL</label>
 				</div>
@@ -181,9 +181,12 @@
 		</fieldset>
 
 	</div>
+	
 	<!-- This should eventually redirect to the post details - need to find the priority that is returned -->
 	<a ng-href="#/dashboard">
-	<button class="btn btn-block btn-success btn-lg" ng-click="addPost()">
-		Post It
-	</button> </a>
+		<button class="btn btn-block btn-success btn-lg" ng-click="addPost()">
+			Post It
+		</button> 
+	</a>
+	
 </form>
