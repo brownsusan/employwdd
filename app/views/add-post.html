@@ -1,8 +1,13 @@
 <h1>Add A Post</h1>
-<form>
+<form name="postForm" novalidate>
 	<div class="form-group">
 		<label>Title</label>
-		<input type="text" ng-model="title" class="form-control" placeholder="Basic brochure site - quick and simple!"/>
+		<input required ng-maxlength=40 type="text" name="title" ng-model="title" class="form-control" placeholder="Basic brochure site - quick and simple!"/>
+
+		<div class="error" ng-show="postForm.title.$dirty && postForm.title.$invalid">
+			<small class="error" ng-show="postForm.title.$error.required "> A title is required. </small>
+			<small class="error" ng-show="postForm.title.$error.maxlength"> The title must be less than 40 characters. </small>
+		</div>
 	</div>
 
 	<div class="form-group">
@@ -12,8 +17,27 @@
 	</div>
 
 	<div class="form-group">
+		<label>Compensation</label>
+		<br />
+		<label id="paid">
+			<input required type="radio" name="compensation" ng-model="compensation" ng-value="'paid'" />
+			<img src="/images/icon/paid.png" />
+			<br />
+			Paid</label>
+		<label id="unpaid">
+			<input type="radio" name="compensation" ng-model="compensation" ng-value="'unpaid'" />
+			<img src="/images/icon/unpaid.png" />
+			<br />
+			Unpaid</label>
+
+		<div class="error" ng-show="postForm.compensation.$invalid">
+			<small class="error" ng-show="postForm.compensation.$error.required"> You must specifiy the compensation. </small>
+		</div>
+	</div>
+
+	<div class="form-group">
 		<label id="freelance">
-			<input type="radio" name="postType" ng-model="postType" ng-value="'freelance'"/>
+			<input required type="radio" name="postType" ng-model="postType" ng-value="'freelance'"/>
 			<img src="/images/icon/freelance.png" />
 			<br />
 			Freelance</label>
@@ -22,13 +46,16 @@
 			<img src="/images/icon/position.png" />
 			<br />
 			Open Position</label>
+		<div class="error" ng-show="postForm.postType.$invalid">
+			<small class="error" ng-show="postForm.postType.$error.required"> You must specify a post category. </small>
+		</div>
 	</div>
 
 	<div class="form-group" ng-show="postType == 'position'">
 		<label>Position Needed</label>
 		<br />
 		<label id="design">
-			<input type="radio" name="positionNeeded" ng-model="positionNeeded" ng-value="'design'"/>
+			<input ng-required="postType == 'position'" type="radio" name="positionNeeded" ng-model="positionNeeded" ng-value="'design'"/>
 			<img src="/images/icon/design.png" />
 			<br />
 			Design</label>
@@ -47,31 +74,24 @@
 			<img src="/images/icon/database.png" />
 			<br />
 			Database</label>
+
+		<div class="error" ng-show="postForm.positionNeeded.$invalid">
+			<small class="error" ng-show="postForm.positionNeeded.$error.required"> You must specify the position needed. </small>
+		</div>
 	</div>
 
 	<div class="form-group" ng-show="postType == 'freelance'">
 		<label>Client</label>
 		<br />
-		<input type="text" class="form-control" ng-model="client" placeholder="Some Client Name"/>
+		<input ng-required="postType == 'freelance'" ng-maxlength=40 type="text" class="form-control" name="client" ng-model="client" placeholder="Some Client Name"/>
+		<div class="error" ng-show="postForm.client.$dirty && postForm.client.$invalid">
+			<small class="error" ng-show="postForm.client.$error.required"> A client name is required. </small>
+			<small class="error" ng-show="postForm.client.$error.maxlength"> The client name must be less than 40 characters. </small>
+		</div>
 	</div>
 
 	<div class="form-group">
-		<label>Compensation</label>
-		<br />
-		<label id="paid">
-			<input type="radio" name="compensation" ng-model="compensation" ng-value="'paid'" />
-			<img src="/images/icon/paid.png" />
-			<br />
-			Paid</label>
-		<label id="unpaid">
-			<input type="radio" name="compensation" ng-model="compensation" ng-value="'unpaid'" />
-			<img src="/images/icon/unpaid.png" />
-			<br />
-			Unpaid</label>
-	</div>
-
-	<div class="form-group">
-		<label>Required Technologies</label>
+		<label ng-show="postType == 'freelance' || (postType=='position' && positionNeeded)">Required Technologies</label>
 
 		<fieldset id="reqTech">
 			<div ng-show="postType == 'freelance' || positionNeeded == 'design'">
@@ -161,6 +181,7 @@
 						Java</label>
 				</div>
 			</div>
+
 			<div ng-show="postType == 'freelance' || positionNeeded == 'database'">
 				<label>Database</label>
 				<div class="checkbox">
@@ -178,15 +199,15 @@
 						My SQL</label>
 				</div>
 			</div>
+
 		</fieldset>
 
 	</div>
-	
+
 	<!-- This should eventually redirect to the post details - need to find the priority that is returned -->
-	<a ng-href="#/dashboard">
-		<button class="btn btn-block btn-success btn-lg" ng-click="addPost()">
-			Post It
-		</button> 
-	</a>
-	
+	<a >
+	<button ng-disabled="postForm.$invalid" class="btn btn-block btn-success btn-lg" type="submit" ng-click="addPost()">
+		Post It
+	</button> </a>
+
 </form>

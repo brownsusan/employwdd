@@ -72,15 +72,15 @@
 	<br />
 	<div class="form-group">
 		<label>Name:</label>
-		<input type="text" class="form-control" ng-model="ownerName" placeholder="Susan Brown"/>
+		<input required type="text" class="form-control" ng-model="ownerName" placeholder="Susan Brown"/>
 	</div>
 	<div class="form-group">
 		<label>Phone Number:</label>
-		<input type="text" class="form-control" ng-model="phoneNum" placeholder="248-880-3127"/>
+		<input required type="tel" class="form-control" ng-model="phoneNum" placeholder="248-880-3127"/>
 	</div>
 	<div class="form-group">
 		<label>Email:</label>
-		<input type="text" class="form-control" ng-model="email" placeholder="sbrwn.sb@gmail.com"/>
+		<input required type="email" class="form-control" ng-model="email" placeholder="sbrwn.sb@gmail.com"/>
 	</div>
 	<br />
 	<button class="btn btn-success btn-block btn-lg" ng-click="addRequest()">

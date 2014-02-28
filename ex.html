@@ -1,0 +1,61 @@
+<!-- ERRORS - REORGANIZE THIS SHIT -->
+<div class="error" ng-show="postForm.title.$dirty && postForm.title.$invalid">
+	<small class="error"ng-show="postForm.title.$error.required "> 
+		A title is required. 
+	</small>
+
+	<small class="error" ng-show="postForm.title.$error.maxlength"> 
+		The title must be less than 40 characters. 
+	</small>
+</div>
+
+
+
+
+
+
+<div class="error" ng-show="postForm.postType.$invalid">
+	<small class="error" ng-show="postForm.postType.$error.required"> 
+		You must specify a post category. 
+	</small>
+</div>
+
+
+
+
+
+
+
+<div class="error" ng-show="postForm.positionNeeded.$invalid">
+	<small class="error" ng-show="postForm.positionNeeded.$error.required"> 
+		You must specify the position needed. 
+	</small>
+</div>
+
+
+
+
+
+
+
+<div class="error" ng-show="postForm.client.$dirty && postForm.client.$invalid">
+	<small class="error" ng-show="postForm.client.$error.required"> 
+		A client name is required. 
+	</small>
+
+	<small class="error" ng-show="postForm.client.$error.maxlength"> 
+		The client name must be less than 40 characters. 
+	</small>
+</div>
+
+
+
+
+
+
+
+<div class="error" ng-show="postForm.compensation.$invalid">
+	<small class="error" ng-show="postForm.compensation.$error.required"> 
+		You must specifiy the compensation. 
+	</small>
+</div>

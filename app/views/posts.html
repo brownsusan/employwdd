@@ -14,7 +14,7 @@
 				<!-- show the icons for the post -->
 				<div ng-if="post.postType == 'position'" >
 					<img ng-src="images/icon/{{post.positionNeeded}}.png" />
-					<img ng-if="tech != false" ng-repeat="tech in post.reqTech[post.positionNeeded]" ng-src="images/{{post.positionNeeded}}/{{tech}}.png"/>
+					<img ng-repeat="tech in post.reqTech[post.positionNeeded]" ng-if="tech != false" ng-src="images/{{post.positionNeeded}}/{{tech}}.png"/>
 				</div>
 				
 				<!-- show the icons for freelance -->
