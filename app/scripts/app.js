@@ -29,7 +29,7 @@ app.config(function($routeProvider) {
 		'templateUrl' : 'views/position-posts.html',
 		'controller' : 'PostsPositionsCtrl'
 	});
-	
+
 	//Using the posts view with filters written into the controllers
 	$routeProvider.when('/freelance', {
 		'templateUrl' : 'views/freelance-posts.html',
@@ -60,26 +60,37 @@ function($firebaseSimpleLogin, $rootScope) {
 
 }]);
 
+app.filter('toArray', function() {'use strict';
 
-app.filter('toArray', function () {
-    'use strict';
- 
-    return function (obj) {
-        if (!(obj instanceof Object)) {
-            return obj;
-        }
- 
-        return Object.keys(obj).filter(function(key){if(key.charAt(0) !== "$") {return key;}}).map(function (key) {
-            return Object.defineProperty(obj[key], '$key', {__proto__: null, value: key});
-        });
-    };
+	return function(obj) {
+		if (!( obj instanceof Object)) {
+			return obj;
+		}
+
+		return Object.keys(obj).filter(function(key) {
+			if (key.charAt(0) !== "$") {
+				return key;
+			}
+		}).map(function(key) {
+
+			var newObj = Object.defineProperty(obj[key], '$key', {
+				__proto__ : null,
+				value : key
+			});
+
+			newObj.firebaseIndex = key;
+
+			return newObj;
+
+		});
+	};
+
 });
 
-app.filter('reverse', function () {
-    'use strict';
- 
-    return function (items) {
-        return items.slice().reverse();
-    };
+app.filter('reverse', function() {'use strict';
+
+	return function(items) {
+		return items.slice().reverse();
+	};
 });
 

@@ -1,10 +1,11 @@
 <h1>My Dash</h1>
 <h2>My Posts</h2>
 
-<!-- <span ng-show="Object.keys(posts).length == 0">You haven't posted any jobs yet. <br /><a ng-href="#/add-post">You can post one here.</a></span> -->
+<span ng-show="(posts | toArray).length == 0">You haven't posted any jobs yet. <br /><a ng-href="#/add-post">You can post one here.</a></span>
+
 <div class="row marketing">
-	<div ng-repeat="($priority, post) in posts | toArray | reverse" ng-if="post.ownerId == loginObj.user.id">
-		<a ng-href="#/post/{{$priority}}">
+	<div ng-repeat="post in posts | toArray | reverse" ng-if="post.ownerId == loginObj.user.id">
+		<a ng-href="#/post/{{post.firebaseIndex}}">
 			
 			<div class="well">
 				
