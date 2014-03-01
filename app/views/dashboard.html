@@ -1,5 +1,6 @@
 <h1>My Dash</h1>
 <h2>My Posts</h2>
+<!-- <span ng-show="Object.keys(posts).length == 0">You haven't posted any jobs yet. <br /><a ng-href="#/add-post">You can post one here.</a></span> -->
 <div class="row marketing">
 	<div ng-repeat="($priority, post) in posts" ng-if="post.ownerId == loginObj.user.id">
 		<a ng-href="#/post/{{$priority}}">
@@ -21,6 +22,7 @@
 <!-- <div ng-repeat="request in requests" ng-if="postPriority == request.postPriority"> -->
 
 <!-- This should link to the post it is attached to -->
+<!-- <span ng-hide="requests != null">You haven't requested any jobs yet. <br /><a ng-href="#/posts">Start looking now.</a></span> -->
 <div class="row marketing">
 	<div ng-repeat="request in requests" ng-if="request.ownerId == loginObj.user.id">
 		<a ng-href="#/post/{{request.postPriority}}">

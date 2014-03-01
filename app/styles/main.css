@@ -24,34 +24,59 @@ h3 {
 	font-size: 16px;
 }
 
-.btn-success{
-	background: #b4d77e; 
+
+
+
+
+.ng-dirty .ng-invalid {
+	border: 1px solid Red;
+	box-shadow: 0px 0px 7px red;
+}
+	
+.error {
+	color: Red;
+}
+
+
+
+.posts-title{
+	font-size: 16px;
+	font-weight: bold;
+}
+
+div img{
+	padding: 7px;
+}
+
+
+
+.btn-success {
+	background: #b4d77e;
 	border-color: #a4cf61;
 }
 
-.btn-success:hover{
+.btn-success:hover {
 	background: #a4cf61;
 	border-color: #97c74c;
 }
 
-.label{
+.label {
 	font-weight: normal;
 }
 
-.well{
+.well {
 	padding: 15px;
 	background: #f8f8f8;
 }
 
-.jumbotron{
+.jumbotron {
 	background: none;
 }
 
-.type{
+.type {
 	font-size: 12px;
 	margin-left: 10px;
 }
-
 
 .header, .marketing, .footer {
 	padding-left: 15px;

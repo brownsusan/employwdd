@@ -10,49 +10,45 @@
 		{{post.description}}
 	</p>
 </div>
-<div ng-show="post.postType == 'position'" class="pull-left">
-	<!-- <img src="/images/icon/position.png" /> -->
-	<br/>
-	<img src="images/icon/position.png" />
+<div>
+	<strong>Compensation: </strong>
+	<div ng-show="post.compensation == 'paid'">
+		<img src="/images/icon/paid.png" />
+		<span>Paid</span>
+	</div>
+	<div ng-hide="post.compensation == 'paid'">
+		<img src="/images/icon/unpaid.png" />
+		<span>Unpaid</span>
+	</div>
 </div>
-<div ng-hide="post.postType == 'position'" class="pull-left">
-	<!-- <img src="/images/icon/position.png" /> -->
-	<br/>
-	<img src="images/icon/freelance.png" />
+
+<div>
+	<strong>Category: </strong>
+	<div ng-show="post.postType == 'position'">
+		<img src="images/icon/position.png" />
+		<span>Open Positon</span>
+	</div>
+	<div ng-hide="post.postType == 'position'">
+		<img src="images/icon/freelance.png" />
+		<span>Freelance</span>
+	</div>
 </div>
+
 <div ng-if="post.postType == 'position'">
-	<!-- <img src="/images/icon/backend.png" /> -->
+	<strong>Position Needed: </strong>
 	<br />
 	<img ng-src="images/icon/{{post.positionNeeded}}.png" />
 </div>
+
 <div>
 	<strong>Required Technology: </strong>
 	<br />
 	<div>
-		<!-- <img src="/images/backend/java_icon.png" /><br /> -->
-		<div ng-repeat="tech in post.reqTech.design" ng-if="tech">
-			{{tech}}
-		</div>
-		<div ng-repeat="tech in post.reqTech.frontend" ng-if="tech">
-			{{tech}}
-		</div>
-		<div ng-repeat="tech in post.reqTech.backend" ng-if="tech">
-			{{tech}}
-		</div>
-		<div ng-repeat="tech in post.reqTech.database" ng-if="tech">
-			{{tech}}
-		</div>
+		<img ng-repeat="tech in post.reqTech.design" ng-if="tech" ng-src="images/design/{{tech}}.png"/>
+		<img ng-repeat="tech in post.reqTech.frontend" ng-if="tech" ng-src="images/frontend/{{tech}}.png"/>
+		<img ng-repeat="tech in post.reqTech.backend" ng-if="tech" ng-src="images/backend/{{tech}}.png"/>
+		<img ng-repeat="tech in post.reqTech.database" ng-if="tech"  ng-src="images/database/{{tech}}.png"/>
 	</div>
-</div>
-<div ng-show="post.compensation == 'paid'">
-	<strong>Compensation: </strong>
-	<img src="/images/icon/paid.png" />
-	<span>Paid</span>
-</div>
-<div ng-hide="post.compensation == 'paid'">
-	<strong>Compensation: </strong>
-	<img src="/images/icon/unpaid.png" />
-	<span>Unpaid</span>
 </div>
 
 <div ng-show="post.ownerId == loginObj.user.id">
