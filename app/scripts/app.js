@@ -15,7 +15,7 @@ app.config(function($routeProvider) {
 	});
 
 	$routeProvider.when('/add-post', {
-		'templateUrl' : 'views/add-post.html',
+		'templateUrl' : 'views/add-edit-post.html',
 		'controller' : 'AddPostCtrl'
 	});
 
@@ -42,7 +42,7 @@ app.config(function($routeProvider) {
 	});
 
 	$routeProvider.when('/edit-post/:priority', {
-		'templateUrl' : 'views/edit-post.html',
+		'templateUrl' : 'views/add-edit-post.html',
 		'controller' : 'EditPostCtrl'
 	});
 

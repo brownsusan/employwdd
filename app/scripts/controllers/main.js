@@ -11,46 +11,17 @@ angular.module('employwddApp').controller('DashboardCtrl', function($scope, Fire
 
 angular.module('employwddApp').controller('AddPostCtrl', function($scope, FireConn) {
 
-	$scope.addPost = function() {
+	$scope.pageHeading = 'Add a Post';
+	$scope.buttonText = 'Post It';
 
+	$scope.submit = function() {
+		
 		$scope.posts = FireConn.$child('posts');
+		
+		$scope.post.ownerId = $scope.loginObj.user.id;
+		$scope.post.ownerUsername = $scope.loginObj.user.username;
 
-		$scope.newPost = {
-			'ownerId' : $scope.loginObj.user.id,
-			'ownerUsername' : $scope.loginObj.user.username,
-			'postType' : $scope.postType,
-			'title' : $scope.title,
-			'positionNeeded' : $scope.positionNeeded,
-			'client' : $scope.client,
-			'compensation' : $scope.compensation,
-			'reqTech' : {
-				'design' : {
-					'photoshop' : $scope.photoshop,
-					'illustrator' : $scope.illustrator,
-					'indesign' : $scope.indesign
-				},
-				'frontend' : {
-					'html' : $scope.html,
-					'css' : $scope.css,
-					'javascript' : $scope.javascript
-				},
-				'backend' : {
-					'php' : $scope.php,
-					'node' : $scope.node,
-					'python' : $scope.python,
-					'ruby' : $scope.ruby,
-					'javaSS' : $scope.javaSS
-				},
-				'database' : {
-					'mongo' : $scope.mongo,
-					'mysql' : $scope.mysql
-				}
-			},
-			'description' : $scope.description
-		};
-
-		$scope.posts.$add($scope.newPost);
-
+		$scope.posts.$add($scope.post);
 	};
 
 });
@@ -105,8 +76,11 @@ angular.module('employwddApp').controller('EditPostCtrl', function($scope, FireC
 
 	$scope.post = FireConn.$child('posts').$child($routeParams.priority);
 	$scope.postPriority = $routeParams.priority;
+	
+	$scope.pageHeading = 'Edit a Post';
+	$scope.buttonText = 'Update It';
 
-	$scope.updatePost = function() {
+	$scope.submit = function() {
 		$scope.post.$save();
 	};
 
