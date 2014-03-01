@@ -53,13 +53,14 @@
 
 <div ng-show="post.ownerId == loginObj.user.id">
 	<!-- This needs a confirm action affordance -->
-	<a ng-href="#/dashboard"> <a ng-href="#/edit-post/{{postPriority}}">
+	<a ng-href="#/edit-post/{{postPriority}}">
 	<button class="btn btn-default btn-block btn-lg">
 		Edit This Post
 	</button> </a>
+	
 	<button class="btn btn-danger btn-block btn-lg" ng-click="deletePost()">
 		Delete This Post
-	</button></a>
+	</button>
 </div>
 
 <hr>
