@@ -7,7 +7,7 @@
 <a ng-click="search='position'; pageHeading='Open Positions'">Open Positions</a><br />
 
 <div class="row marketing">
-	<div ng-repeat="($priority, post) in posts | toArray | filter:{postType: search}">
+	<div ng-repeat="($priority, post) in posts | toArray | reverse | filter:{postType: search}">
 		<a ng-href="#/post/{{$priority}}">
 			
 			<div class="well">

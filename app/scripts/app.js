@@ -75,3 +75,11 @@ app.filter('toArray', function () {
     };
 });
 
+app.filter('reverse', function () {
+    'use strict';
+ 
+    return function (items) {
+        return items.slice().reverse();
+    };
+});
+

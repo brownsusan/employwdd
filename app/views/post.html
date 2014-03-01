@@ -85,7 +85,7 @@
 </div>
 <hr>
 <strong>Requests</strong>
-<div ng-repeat="request in requests" ng-if="postPriority == request.postPriority">
+<div ng-repeat="request in requests | toArray | reverse" ng-if="postPriority == request.postPriority">
 	<div>
 		<img ng-src="{{request.gravatar}}" class="glyphicon img-circle" />
 		<span>{{request.ownerName}}</span>
