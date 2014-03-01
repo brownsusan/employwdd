@@ -16,12 +16,12 @@
 	</div>
 	<label>Compensation</label>
 	<div class="form-group row">
-		<label class="normal-weight col-xs-3" id="paid">
+		<label class="normal-weight col-xs-4" id="paid">
 			<input required type="radio" name="compensation" ng-model="post.compensation" ng-value="'paid'" />
 			<img class="custom-icon" src="/images/icon/paid.png" />
 			<br />
 			Paid</label>
-		<label class="normal-weight col-xs-3" id="unpaid">
+		<label class="normal-weight col-xs-4" id="unpaid">
 			<input type="radio" name="compensation" ng-model="post.compensation" ng-value="'unpaid'"/>
 			<img class="custom-icon" src="/images/icon/unpaid.png" />
 			<br />
@@ -34,12 +34,12 @@
 
 	<label>Category</label>
 	<div class="form-group row">
-		<label class="normal-weight col-xs-3" id="freelance">
+		<label class="normal-weight col-xs-4" id="freelance">
 			<input required type="radio" name="postType" ng-model="post.postType" ng-value="'freelance'"/>
 			<img class="custom-icon" src="/images/icon/freelance.png" />
 			<br />
 			Freelance</label>
-		<label class="normal-weight col-xs-3" id="position">
+		<label class="normal-weight col-xs-4" id="position">
 			<input type="radio" name="postType" ng-model="post.postType" ng-value="'position'"/>
 			<img class="custom-icon" src="/images/icon/position.png" />
 			<br />
@@ -48,25 +48,25 @@
 			<small class="error" ng-show="postForm.postType.$error.required"> You must specify a post category. </small>
 		</div>
 	</div>
-	
+
 	<label ng-show="post.postType == 'position'">Position Needed</label>
 	<div class="form-group row" ng-show="post.postType == 'position'">
-		<label class="normal-weight col-xs-3" id="design">
+		<label class="normal-weight" id="design">
 			<input ng-required="post.postType == 'position'" type="radio" name="positionNeeded" ng-model="post.positionNeeded" ng-value="'design'"/>
 			<img class="custom-icon" src="/images/icon/design.png" />
 			<br />
 			Design</label>
-		<label class="normal-weight col-xs-3" id="front-end">
+		<label class="normal-weight" id="front-end">
 			<input type="radio" name="positionNeeded" ng-model="post.positionNeeded" ng-value="'frontend'"/>
 			<img class="custom-icon" src="/images/icon/frontend.png" />
 			<br />
 			Frontend Dev</label>
-		<label class="normal-weight col-xs-3" id="back-end">
+		<label class="normal-weight" id="back-end">
 			<input type="radio" name="positionNeeded" ng-model="post.positionNeeded" ng-value="'backend'"/>
 			<img class="custom-icon" src="/images/icon/backend.png" />
 			<br />
 			Backend Dev</label>
-		<label class="normal-weight col-xs-3" id="database">
+		<label class="normal-weight" id="database">
 			<input type="radio" name="positionNeeded" ng-model="post.positionNeeded" ng-value="'database'"/>
 			<img class="custom-icon" src="/images/icon/database.png" />
 			<br />
@@ -91,25 +91,25 @@
 		<label ng-show="post.postType == 'freelance' || (post.postType=='position' && post.positionNeeded)">Required Technologies</label>
 
 		<fieldset id="reqTech">
-			<div class="container-fluid" ng-show="post.postType == 'freelance' || post.positionNeeded == 'design'">
+			<div ng-show="post.postType == 'freelance' || post.positionNeeded == 'design'">
 				<label>Design</label>
-				<div class="checkbox">
-					<label class="normal-weight col-xs-3" for="photoshop" name="photoshop">
+				<div class="checkbox" >
+					<label class="normal-weight" for="photoshop" name="photoshop">
 						<input id="photoshop" type="checkbox" name="design" ng-model="post.reqTech.design.photoshop"  ng-true-value="photoshop">
-						<img class="custom-icon" src="/images/design/photoshop.png" />
+						<img class="custom-icon" src="/images/design/photoshop.png" ng-class="{ checked : post.reqTech.design.photoshop"/>
 						<br />
 						Photoshop</label>
 					<br />
 				</div>
 				<div class="checkbox">
-					<label class="normal-weight col-xs-3" for="illustrator">
+					<label class="normal-weight" for="illustrator">
 						<input id="illustrator" type="checkbox" name="design" ng-model="post.reqTech.design.illustrator" ng-true-value="illustrator">
 						<img class="custom-icon" src="/images/design/illustrator.png" />
 						<br />
 						Illustrator</label>
 				</div>
 				<div class="checkbox">
-					<label class="normal-weight col-xs-3" for="indesign">
+					<label class="normal-weight" for="indesign">
 						<input id="indesign" type="checkbox" name="design" ng-model="post.reqTech.design.indesign" ng-true-value="indesign">
 						<img class="custom-icon" src="/images/design/indesign.png" />
 						<br />
@@ -119,21 +119,21 @@
 			<div ng-show="post.postType == 'freelance' || post.positionNeeded == 'frontend'">
 				<label>Frontend</label>
 				<div class="checkbox">
-					<label class="normal-weight col-xs-3" for="html">
+					<label class="normal-weight" for="html">
 						<input id="html" type="checkbox" name="frontend" ng-model="post.reqTech.frontend.html"  ng-true-value="html">
 						<img class="custom-icon" src="/images/frontend/html.png" />
 						<br />
 						HTML5</label>
 				</div>
 				<div class="checkbox">
-					<label class="normal-weight col-xs-3" for="css">
+					<label class="normal-weight" for="css">
 						<input id="css" type="checkbox" name="frontend" ng-model="post.reqTech.frontend.css" ng-true-value="css">
 						<img class="custom-icon" src="/images/frontend/css.png" />
 						<br />
 						CSS3</label>
 				</div>
 				<div class="checkbox">
-					<label class="normal-weight col-xs-3" for="javascript">
+					<label class="normal-weight" for="javascript">
 						<input id="javascript" type="checkbox" name="frontend" ng-model="post.reqTech.frontend.javascript" ng-true-value="javascript">
 						<img class="custom-icon" src="/images/frontend/javascript.png" />
 						<br />
@@ -143,35 +143,35 @@
 			<div ng-show="post.postType == 'freelance' || post.positionNeeded == 'backend'">
 				<label>Backend</label>
 				<div class="checkbox">
-					<label class="normal-weight col-xs-3" for="php">
+					<label class="normal-weight" for="php">
 						<input id="php" type="checkbox" name="backend" ng-model="post.reqTech.backend.php" ng-true-value="php">
 						<img class="custom-icon" src="/images/backend/php.png" />
 						<br />
 						PHP</label>
 				</div>
 				<div class="checkbox">
-					<label class="normal-weight col-xs-3" for="node">
+					<label class="normal-weight" for="node">
 						<input id="node" type="checkbox" name="backend" ng-model="post.reqTech.backend.node" ng-true-value="node" >
 						<img class="custom-icon" src="/images/backend/node.png" />
 						<br />
 						Node.js</label>
 				</div>
 				<div class="checkbox">
-					<label class="normal-weight col-xs-3" for="python">
+					<label class="normal-weight" for="python">
 						<input id="python" type="checkbox" name="backend" ng-model="post.reqTech.backend.python" ng-true-value="python">
 						<img class="custom-icon" src="/images/backend/python.png" />
 						<br />
 						Python</label>
 				</div>
 				<div class="checkbox">
-					<label class="normal-weight col-xs-3" for="ruby">
+					<label class="normal-weight" for="ruby">
 						<input id="ruby" type="checkbox" name="backend" ng-model="post.reqTech.backend.ruby" ng-true-value="ruby" >
 						<img class="custom-icon" src="/images/backend/ruby.png" />
 						<br />
 						Ruby</label>
 				</div>
 				<div class="checkbox">
-					<label class="normal-weight col-xs-3" for="javaSS">
+					<label class="normal-weight" for="javaSS">
 						<input id="javaSS" type="checkbox" name="backend" ng-model="post.reqTech.backend.javaSS" ng-true-value="javaSS">
 						<img class="custom-icon" src="/images/backend/javaSS.png" />
 						<br />
@@ -182,14 +182,14 @@
 			<div ng-show="post.postType == 'freelance' || post.positionNeeded == 'database'">
 				<label>Database</label>
 				<div class="checkbox">
-					<label class="normal-weight col-xs-3" for="mongo">
+					<label class="normal-weight" for="mongo">
 						<input id="mongo" type="checkbox" name="database" ng-model="post.reqTech.database.mongo" ng-true-value="mongo" >
 						<img class="custom-icon" src="/images/database/mongo.png" />
 						<br />
 						MongoDB</label>
 				</div>
 				<div class="checkbox">
-					<label class="normal-weight col-xs-3" for="mysql">
+					<label class="normal-weight" for="mysql">
 						<input id="mysql" type="checkbox" name="database" ng-model="post.reqTech.database.mysql" ng-true-value="mysql">
 						<img class="custom-icon" src="/images/database/mysql.png" />
 						<br />
@@ -203,7 +203,7 @@
 
 	<!-- This should eventually redirect to the post details - need to find the priority that is returned -->
 	<a >
-	<button ng-disabled="postForm.$invalid" class="btn btn-block btn-success btn-lg" type="submit" ng-click="submit()">
+	<button ng-disabled="postForm.$invalid" class="btn btn-block btn-success" type="submit" ng-click="submit()">
 		{{buttonText}}
 	</button> </a>
 

@@ -52,20 +52,20 @@
 		<img class="custom-icon" ng-repeat="tech in post.reqTech.database" ng-if="tech"  ng-src="images/database/{{tech}}.png"/>
 	</div>
 </div>
-
+<hr />
 <!-- owner delete form -->
 <div ng-show="post.ownerId == loginObj.user.id">
 	<!-- This needs a confirm action affordance -->
 	<a ng-href="#/edit-post/{{postPriority}}">
-	<button class="btn btn-default btn-block btn-lg">
+	<button class="btn btn-default btn-block">
 		Edit This Post
 	</button> </a>
 
-	<button class="btn btn-danger btn-block btn-lg" ng-click="deletePost()">
+	<button class="btn btn-danger btn-block" ng-click="deletePost()">
 		Delete This Post
 	</button>
+	<hr />
 </div>
-<hr>
 
 <!-- request form -->
 <form name="requestForm">
@@ -74,7 +74,7 @@
 		<br />
 		<div class="form-group">
 			<label>Name:</label>
-			<input required type="text" ng-maxlength=30 name="name" class="form-control" ng-model="displayName" placeholder="John Doe"/>
+			<input required type="text" ng-maxlength=30 name="ownerName" class="form-control" ng-model="ownerName" placeholder="John Doe"/>
 			<div class="error" ng-show="requestForm.name.$dirty && requestForm.name.$invalid">
 				<small class="error" ng-show="requestForm.name.$error.required"> A name is required. </small>
 				<small class="error" ng-show="requestForm.name.$error.maxlength"> The name must be less than 30 characters. </small>
@@ -95,19 +95,26 @@
 			</div>
 		</div>
 		<br />
-		<button class="btn btn-success btn-block btn-lg" ng-click="addRequest()">
+		<button class="btn btn-success btn-block" ng-click="addRequest()">
 			Send Request
 		</button>
-		<hr>
+		<hr />
 	</div>
 </form>
 <!-- requests -->
 <strong ng-show="(requests | toArray | filter:{postPriority:postPriority}).length > 0">Requests</strong>
 <div ng-repeat="request in requests | toArray | reverse | filter:{postPriority:postPriority}">
+	<img ng-src="{{request.gravatar}}" class="glyphicon img-circle" />
 	<div>
-		<img ng-src="{{request.gravatar}}" class="glyphicon img-circle" />
-		<span>{{request.ownerName}}</span>
-		<span>{{request.phoneNum}}</span>
-		<span>{{request.email}}</span>
+		<p>
+			{{request.ownerName}}
+		</p>
+		<p>
+			{{request.phoneNum}}
+		</p>
+		<p>
+			{{request.email}}
+		</p>
 	</div>
+	<hr />
 </div>

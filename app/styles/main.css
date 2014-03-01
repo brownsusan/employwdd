@@ -33,13 +33,15 @@ input[type=text].ng-dirty.ng-invalid, input[type=email].ng-dirty.ng-invalid, inp
 	box-shadow: 0px 0px 7px #c72e24;
 }
 
-input[type=radio], input[type=checkbox] {
+/*input[type=radio], input[type=checkbox] {
 	display: none;
-}
+}*/
 
 
 .error {
 	color: #c72e24;
+	text-align: center;
+	margin: 5px;
 }
 
 .posts-title {
@@ -50,6 +52,11 @@ input[type=radio], input[type=checkbox] {
 .custom-icon {
 	padding: 7px;
 }
+
+.btn-block{
+	margin: 10px 0;
+}
+
 
 .btn-success {
 	background: #b4d77e;
@@ -86,6 +93,11 @@ input[type=radio], input[type=checkbox] {
 
 .normal-weight{
 	font-weight: normal;
+}
+
+.navbar-nav li:last-child{
+	margin-right: 20px;
+	/*color: red;*/
 }
 
 /* Custom page footer */
