@@ -12,31 +12,31 @@
 				
 				<img ng-src="images/icon/{{ post.postType }}.png" />
 				
-				<img ng-if="post.postType == 'position'" ng-src="images/icon/{{post.positionNeeded}}.png" />
+				<img class="custom-icon" ng-if="post.postType == 'position'" ng-src="images/icon/{{post.positionNeeded}}.png" />
 				
 				<!-- show the icons for postition -->
 				<span ng-if="post.postType == 'position'" ng-repeat="tech in post.reqTech[post.positionNeeded]">
-					<img ng-if="tech != false" ng-src="images/{{post.positionNeeded}}/{{tech}}.png"/>
+					<img class="custom-icon" ng-if="tech != false" ng-src="images/{{post.positionNeeded}}/{{tech}}.png"/>
 				</span>
 				
 				<!-- show the icons for freelance design -->
 				<span  ng-if="post.postType == 'freelance'" ng-repeat="tech in post.reqTech.design"  >
-					<img ng-if="tech != false" ng-src="images/design/{{tech}}.png"/>
+					<img class="custom-icon" ng-if="tech != false" ng-src="images/design/{{tech}}.png"/>
 				</span>
 				
 				<!-- show the icons for freelance frontend -->
 				<span  ng-if="post.postType == 'freelance'" ng-repeat="tech in post.reqTech.frontend"  >
-					<img ng-if="tech != false" ng-src="images/frontend/{{tech}}.png"/>
+					<img class="custom-icon" ng-if="tech != false" ng-src="images/frontend/{{tech}}.png"/>
 				</span>
 				
 				<!-- show the icons for freelance backend -->
 				<span  ng-if="post.postType == 'freelance'" ng-repeat="tech in post.reqTech.backend"  >
-					<img ng-if="tech != false" ng-src="images/backend/{{tech}}.png"/>
+					<img class="custom-icon" ng-if="tech != false" ng-src="images/backend/{{tech}}.png"/>
 				</span>
 				
 				<!-- show the icons for freelance database -->
 				<span  ng-if="post.postType == 'freelance'" ng-repeat="tech in post.reqTech.database"  >
-					<img ng-if="tech != false" ng-src="images/database/{{tech}}.png"/>
+					<img class="custom-icon" ng-if="tech != false" ng-src="images/database/{{tech}}.png"/>
 				</span>
 				
 			</div>

@@ -42,8 +42,12 @@ angular.module('employwddApp').controller('PostCtrl', function($scope, FireConn,
 	$scope.postPriority = $routeParams.priority;
 
 	$scope.requests = FireConn.$child('requests');
+	
+	$scope.requestFormHide = false;
 
 	$scope.addRequest = function() {
+		
+		$scope.requestFormHide = true;
 
 		$scope.newRequest = {
 			'postPriority' : $routeParams.priority,

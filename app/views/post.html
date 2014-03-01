@@ -13,11 +13,11 @@
 <div>
 	<strong>Compensation: </strong>
 	<div ng-show="post.compensation == 'paid'">
-		<img src="/images/icon/paid.png" />
+		<img class="custom-icon" src="/images/icon/paid.png" />
 		<span>Paid</span>
 	</div>
 	<div ng-hide="post.compensation == 'paid'">
-		<img src="/images/icon/unpaid.png" />
+		<img class="custom-icon" src="/images/icon/unpaid.png" />
 		<span>Unpaid</span>
 	</div>
 </div>
@@ -25,11 +25,11 @@
 <div>
 	<strong>Category: </strong>
 	<div ng-show="post.postType == 'position'">
-		<img src="images/icon/position.png" />
+		<img class="custom-icon" src="images/icon/position.png" />
 		<span>Open Positon</span>
 	</div>
 	<div ng-hide="post.postType == 'position'">
-		<img src="images/icon/freelance.png" />
+		<img class="custom-icon" src="images/icon/freelance.png" />
 		<span>Freelance</span>
 	</div>
 </div>
@@ -37,17 +37,17 @@
 <div ng-if="post.postType == 'position'">
 	<strong>Position Needed: </strong>
 	<br />
-	<img ng-src="images/icon/{{post.positionNeeded}}.png" />
+	<img class="custom-icon" ng-src="images/icon/{{post.positionNeeded}}.png" />
 </div>
 
 <div>
 	<strong>Required Technology: </strong>
 	<br />
 	<div>
-		<img ng-repeat="tech in post.reqTech.design" ng-if="tech" ng-src="images/design/{{tech}}.png"/>
-		<img ng-repeat="tech in post.reqTech.frontend" ng-if="tech" ng-src="images/frontend/{{tech}}.png"/>
-		<img ng-repeat="tech in post.reqTech.backend" ng-if="tech" ng-src="images/backend/{{tech}}.png"/>
-		<img ng-repeat="tech in post.reqTech.database" ng-if="tech"  ng-src="images/database/{{tech}}.png"/>
+		<img class="custom-icon" ng-repeat="tech in post.reqTech.design" ng-if="tech" ng-src="images/design/{{tech}}.png"/>
+		<img class="custom-icon" ng-repeat="tech in post.reqTech.frontend" ng-if="tech" ng-src="images/frontend/{{tech}}.png"/>
+		<img class="custom-icon" ng-repeat="tech in post.reqTech.backend" ng-if="tech" ng-src="images/backend/{{tech}}.png"/>
+		<img class="custom-icon" ng-repeat="tech in post.reqTech.database" ng-if="tech"  ng-src="images/database/{{tech}}.png"/>
 	</div>
 </div>
 
@@ -57,13 +57,13 @@
 	<button class="btn btn-default btn-block btn-lg">
 		Edit This Post
 	</button> </a>
-	
+
 	<button class="btn btn-danger btn-block btn-lg" ng-click="deletePost()">
 		Delete This Post
 	</button>
 </div>
 <hr>
-<div ng-hide="post.ownerId == loginObj.user.id" class="well">
+<div ng-hide="post.ownerId == loginObj.user.id || requestFormHide" class="well">
 	<strong>Request This Job</strong>
 	<br />
 	<div class="form-group">
@@ -82,8 +82,8 @@
 	<button class="btn btn-success btn-block btn-lg" ng-click="addRequest()">
 		Send Request
 	</button>
+	<hr>
 </div>
-<hr>
 <strong>Requests</strong>
 <div ng-repeat="request in requests | toArray | reverse" ng-if="postPriority == request.postPriority">
 	<div>

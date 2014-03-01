@@ -39,23 +39,6 @@ input[type=radio]{
 }
 
 
-/*class attr on label
-create css class called selectedTrue
-give bg*/
-.selected_{
-	background: red;	
-}
-
-.selected_false{
-	background: none;
-}
-
-/*.selected_photoshop{
-	background: red;
-}*/
-
-
-
 input[type=checkbox]:checked label{
 	border: 1px solid red;
 }
@@ -65,16 +48,12 @@ input[type=checkbox]:checked label{
 }
 
 
-
-
-
-
 .posts-title{
 	font-size: 16px;
 	font-weight: bold;
 }
 
-div img{
+.custom-icon{
 	padding: 7px;
 }
 

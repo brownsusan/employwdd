@@ -14,7 +14,7 @@
 				
 				<p class="posts-title">{{post.title}}</p>
 				
-				<img ng-src="images/icon/{{post.postType}}.png" />
+				<img class="custom-icon" ng-src="images/icon/{{post.postType}}.png" />
 				
 				<!-- even though I am applying filters to show only  -->
 				<!-- the freelance or positions I have to have two  -->
@@ -22,18 +22,18 @@
 				
 				<!-- show the icons for postition -->
 				<span ng-if="post.postType == 'position'" >
-					<img ng-src="images/icon/{{post.positionNeeded}}.png" />
-					<img ng-repeat="tech in post.reqTech[post.positionNeeded]" ng-if="tech != false" ng-src="images/{{post.positionNeeded}}/{{tech}}.png"/>
+					<img class="custom-icon" ng-src="images/icon/{{post.positionNeeded}}.png" />
+					<img class="custom-icon" ng-repeat="tech in post.reqTech[post.positionNeeded]" ng-if="tech != false" ng-src="images/{{post.positionNeeded}}/{{tech}}.png"/>
 				</span>
 				
 				<!-- show the icons for freelance -->
 				<!-- these need to be seperated here  -->
 				<!-- beecause of the structure of the firebase -->
 				<span ng-if="post.postType == 'freelance'"  >
-					<img ng-if="tech != false"  ng-repeat="tech in post.reqTech.design"  ng-src="images/design/{{tech}}.png"/>
-					<img ng-if="tech != false" ng-repeat="tech in post.reqTech.frontend"  ng-src="images/frontend/{{tech}}.png"/>
-					<img ng-if="tech != false" ng-repeat="tech in post.reqTech.backend"  ng-src="images/backend/{{tech}}.png"/>
-					<img ng-if="tech != false" ng-repeat="tech in post.reqTech.database"  ng-src="images/database/{{tech}}.png"/>
+					<img class="custom-icon" ng-if="tech != false"  ng-repeat="tech in post.reqTech.design"  ng-src="images/design/{{tech}}.png"/>
+					<img class="custom-icon" ng-if="tech != false" ng-repeat="tech in post.reqTech.frontend"  ng-src="images/frontend/{{tech}}.png"/>
+					<img class="custom-icon" ng-if="tech != false" ng-repeat="tech in post.reqTech.backend"  ng-src="images/backend/{{tech}}.png"/>
+					<img class="custom-icon" ng-if="tech != false" ng-repeat="tech in post.reqTech.database"  ng-src="images/database/{{tech}}.png"/>
 				</span>
 			
 			</div>
