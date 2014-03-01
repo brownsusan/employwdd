@@ -12,21 +12,21 @@
 				
 				<img ng-src="images/icon/{{post.postType}}.png" />
 				
-				<!-- show the icons for the post -->
-				<div ng-if="post.postType == 'position'" >
+				<!-- show the icons for postition -->
+				<span ng-if="post.postType == 'position'" >
 					<img ng-src="images/icon/{{post.positionNeeded}}.png" />
 					<img ng-repeat="tech in post.reqTech[post.positionNeeded]" ng-if="tech != false" ng-src="images/{{post.positionNeeded}}/{{tech}}.png"/>
-				</div>
+				</span>
 				
 				<!-- show the icons for freelance -->
 				<!-- these need to be seperated here  -->
 				<!-- beecause of the structure of the firebase -->
-				<div ng-if="post.postType == 'freelance'"  >
+				<span ng-if="post.postType == 'freelance'"  >
 					<img ng-if="tech != false"  ng-repeat="tech in post.reqTech.design"  ng-src="images/design/{{tech}}.png"/>
 					<img ng-if="tech != false" ng-repeat="tech in post.reqTech.frontend"  ng-src="images/frontend/{{tech}}.png"/>
 					<img ng-if="tech != false" ng-repeat="tech in post.reqTech.backend"  ng-src="images/backend/{{tech}}.png"/>
 					<img ng-if="tech != false" ng-repeat="tech in post.reqTech.database"  ng-src="images/database/{{tech}}.png"/>
-				</div>
+				</span>
 			
 			</div>
 			
