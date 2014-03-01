@@ -74,7 +74,7 @@
 		<br />
 		<div class="form-group">
 			<label>Name:</label>
-			<input required type="text" ng-maxlength=30 name="name" class="form-control" ng-model="displayName" placeholder="{{displayName}}"/>
+			<input required type="text" ng-maxlength=30 name="name" class="form-control" ng-model="displayName" placeholder="John Doe"/>
 			<div class="error" ng-show="requestForm.name.$dirty && requestForm.name.$invalid">
 				<small class="error" ng-show="requestForm.name.$error.required"> A name is required. </small>
 				<small class="error" ng-show="requestForm.name.$error.maxlength"> The name must be less than 30 characters. </small>
@@ -89,7 +89,7 @@
 		</div>
 		<div class="form-group">
 			<label>Email:</label>
-			<input required type="email" class="form-control" name="email" ng-model="email" placeholder="{{email}}"/>
+			<input required type="email" class="form-control" name="email" ng-model="email" placeholder="myname@domain.com"/>
 			<div class="error" ng-show="requestForm.email.$dirty && requestForm.email.$invalid">
 				<small class="error" ng-show="requestForm.email.$error.required"> An email is required. </small>
 			</div>
