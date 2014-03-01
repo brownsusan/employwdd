@@ -26,7 +26,9 @@ h3 {
 
 
 
-
+.description{
+	font-weight: bold;
+}
 
 input[type=text].ng-dirty.ng-invalid {
 	border: 1px solid Red;

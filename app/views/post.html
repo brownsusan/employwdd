@@ -4,9 +4,7 @@
 	<span>{{post.ownerUsername}}</span>
 </div>
 <div>
-	<strong>Description:</strong>
-	<br />
-	<p>
+	<p><strong>Description: </strong>
 		{{post.description}}
 	</p>
 </div>
@@ -51,10 +49,6 @@
 	</div>
 </div>
 
-<p>tets {{post}}</p>
-<br />
-<p>test {{loginObj.user.id}}</p>
-
 <div ng-show="post.ownerId == loginObj.user.id">
 	<!-- This needs a confirm action affordance -->
 	<a ng-href="#/edit-post/{{postPriority}}">
@@ -88,8 +82,8 @@
 	</button>
 	<hr>
 </div>
-<strong>Requests</strong>
-<div ng-repeat="request in requests | toArray | reverse" ng-if="postPriority == request.postPriority">
+<strong ng-show="(requests | toArray | filter:{postPriority:postPriority}).length > 0">Requests</strong>
+<div ng-repeat="request in requests | toArray | reverse | filter:{postPriority:postPriority}">
 	<div>
 		<img ng-src="{{request.gravatar}}" class="glyphicon img-circle" />
 		<span>{{request.ownerName}}</span>
