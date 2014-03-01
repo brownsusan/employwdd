@@ -1,13 +1,16 @@
 <h1>{{post.title}}</h1>
+
 <div>
 	<strong>Posted By: </strong>
 	<span>{{post.ownerUsername}}</span>
 </div>
+
 <div>
 	<p><strong>Description: </strong>
 		{{post.description}}
 	</p>
 </div>
+
 <div>
 	<strong>Compensation: </strong>
 	<div ng-show="post.compensation == 'paid'">
@@ -49,6 +52,7 @@
 	</div>
 </div>
 
+<!-- owner delete form -->
 <div ng-show="post.ownerId == loginObj.user.id">
 	<!-- This needs a confirm action affordance -->
 	<a ng-href="#/edit-post/{{postPriority}}">
@@ -61,6 +65,8 @@
 	</button>
 </div>
 <hr>
+
+<!-- request form -->
 <div ng-hide="post.ownerId == loginObj.user.id || requestFormHide" class="well">
 	<strong>Request This Job</strong>
 	<br />
@@ -82,6 +88,8 @@
 	</button>
 	<hr>
 </div>
+
+<!-- requests -->
 <strong ng-show="(requests | toArray | filter:{postPriority:postPriority}).length > 0">Requests</strong>
 <div ng-repeat="request in requests | toArray | reverse | filter:{postPriority:postPriority}">
 	<div>

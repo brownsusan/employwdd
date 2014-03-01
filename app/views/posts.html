@@ -23,17 +23,17 @@
 				<!-- show the icons for postition -->
 				<span ng-if="post.postType == 'position'" >
 					<img class="custom-icon" ng-src="images/icon/{{post.positionNeeded}}.png" />
-					<img class="custom-icon" ng-repeat="tech in post.reqTech[post.positionNeeded]" ng-if="tech != false" ng-src="images/{{post.positionNeeded}}/{{tech}}.png"/>
+					<img class="custom-icon" ng-repeat="tech in post.reqTech[post.positionNeeded]" ng-if="tech" ng-src="images/{{post.positionNeeded}}/{{tech}}.png"/>
 				</span>
 				
 				<!-- show the icons for freelance -->
 				<!-- these need to be seperated here  -->
 				<!-- beecause of the structure of the firebase -->
 				<span ng-if="post.postType == 'freelance'"  >
-					<img class="custom-icon" ng-if="tech != false"  ng-repeat="tech in post.reqTech.design"  ng-src="images/design/{{tech}}.png"/>
-					<img class="custom-icon" ng-if="tech != false" ng-repeat="tech in post.reqTech.frontend"  ng-src="images/frontend/{{tech}}.png"/>
-					<img class="custom-icon" ng-if="tech != false" ng-repeat="tech in post.reqTech.backend"  ng-src="images/backend/{{tech}}.png"/>
-					<img class="custom-icon" ng-if="tech != false" ng-repeat="tech in post.reqTech.database"  ng-src="images/database/{{tech}}.png"/>
+					<img class="custom-icon" ng-repeat="tech in post.reqTech.design" ng-if="tech" ng-src="images/design/{{tech}}.png"/>
+					<img class="custom-icon" ng-repeat="tech in post.reqTech.frontend" ng-if="tech" ng-src="images/frontend/{{tech}}.png"/>
+					<img class="custom-icon" ng-repeat="tech in post.reqTech.backend" ng-if="tech" ng-src="images/backend/{{tech}}.png"/>
+					<img class="custom-icon" ng-repeat="tech in post.reqTech.database" ng-if="tech" ng-src="images/database/{{tech}}.png"/>
 				</span>
 			
 			</div>

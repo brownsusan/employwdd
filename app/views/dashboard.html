@@ -1,10 +1,11 @@
 <h1>My Dash</h1>
-<h2>My Posts</h2>
 
-<span ng-show="(posts | toArray).length == 0">You haven't posted any jobs yet. <br /><a ng-href="#/add-post">You can post one here.</a></span>
+<!-- job postings -->
+<h2>My Posts</h2>
+<span ng-show="(posts | toArray | filter:{ownerId:loginObj.user.id}).length == 0">You haven't posted any jobs yet. <br /><a ng-href="#/add-post">You can post one here.</a></span>
 
 <div class="row marketing">
-	<div ng-repeat="post in posts | toArray | reverse" ng-if="post.ownerId == loginObj.user.id">
+	<div ng-repeat="post in posts | toArray | reverse | filter:{ownerId:loginObj.user.id}">
 		<a ng-href="#/post/{{post.firebaseIndex}}">
 			
 			<div class="well">
@@ -17,27 +18,27 @@
 				
 				<!-- show the icons for postition -->
 				<span ng-if="post.postType == 'position'" ng-repeat="tech in post.reqTech[post.positionNeeded]">
-					<img class="custom-icon" ng-if="tech != false" ng-src="images/{{post.positionNeeded}}/{{tech}}.png"/>
+					<img class="custom-icon" ng-if="tech" ng-src="images/{{post.positionNeeded}}/{{tech}}.png"/>
 				</span>
 				
 				<!-- show the icons for freelance design -->
 				<span  ng-if="post.postType == 'freelance'" ng-repeat="tech in post.reqTech.design"  >
-					<img class="custom-icon" ng-if="tech != false" ng-src="images/design/{{tech}}.png"/>
+					<img class="custom-icon" ng-if="tech" ng-src="images/design/{{tech}}.png"/>
 				</span>
 				
 				<!-- show the icons for freelance frontend -->
 				<span  ng-if="post.postType == 'freelance'" ng-repeat="tech in post.reqTech.frontend"  >
-					<img class="custom-icon" ng-if="tech != false" ng-src="images/frontend/{{tech}}.png"/>
+					<img class="custom-icon" ng-if="tech" ng-src="images/frontend/{{tech}}.png"/>
 				</span>
 				
 				<!-- show the icons for freelance backend -->
 				<span  ng-if="post.postType == 'freelance'" ng-repeat="tech in post.reqTech.backend"  >
-					<img class="custom-icon" ng-if="tech != false" ng-src="images/backend/{{tech}}.png"/>
+					<img class="custom-icon" ng-if="tech" ng-src="images/backend/{{tech}}.png"/>
 				</span>
 				
 				<!-- show the icons for freelance database -->
 				<span  ng-if="post.postType == 'freelance'" ng-repeat="tech in post.reqTech.database"  >
-					<img class="custom-icon" ng-if="tech != false" ng-src="images/database/{{tech}}.png"/>
+					<img class="custom-icon" ng-if="tech" ng-src="images/database/{{tech}}.png"/>
 				</span>
 				
 			</div>
@@ -46,14 +47,14 @@
 	</div>
 </div>
 
+<!-- requests -->
 <h2>My Requests</h2>
-
-<!-- <div ng-repeat="request in requests" ng-if="postPriority == request.postPriority"> -->
+<span ng-show="(requests | toArray | filter:{ownerId:loginObj.user.id}).length == 0">You haven't made any requests. <br />Start browsing for jobs <a href="#/posts">here</a></span>
 
 <!-- This should link to the post it is attached to -->
 <!-- <span ng-hide="requests != null">You haven't requested any jobs yet. <br /><a ng-href="#/posts">Start looking now.</a></span> -->
 <div class="row marketing">
-	<div ng-repeat="request in requests | toArray | reverse" ng-if="request.ownerId == loginObj.user.id">
+	<div ng-repeat="request in requests | toArray | reverse | filter:{ownerId:loginObj.user.id}">
 		<a ng-href="#/post/{{request.postPriority}}">
 		<div class="well">
 			<img class="glyphicon img-circle" ng-src="{{request.gravatar}}" />
