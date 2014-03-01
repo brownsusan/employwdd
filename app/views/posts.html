@@ -1,43 +1,41 @@
-<h1>{{pageHeading}}</h1><span>Touch for more information.</span><br />
+<h1>{{pageHeading}}</h1>
 
 <!-- Make these buttons that filter things -->
-
-<a ng-click="search=''; pageHeading='All Posts'">All Posts</a><br />
-<a ng-click="search='freelance'; pageHeading='Freelance'">Freelance</a><br />
-<a ng-click="search='position'; pageHeading='Open Positions'">Open Positions</a><br />
-
+<div class="btn-group-sm">
+	<button class="btn btn-sm btn-default" ng-click="search=''; pageHeading='All Posts'">
+		All Posts
+	</button>
+	<button class="btn btn-sm btn-default" ng-click="search='freelance'; pageHeading='Freelance'">
+		Freelance
+	</button>
+	<button class="btn btn-sm btn-default" ng-click="search='position'; pageHeading='Open Positions'">
+		Open Positions
+	</button>
+</div>
+<hr />
 <div class="row marketing">
 	<div ng-repeat="post in posts | toArray | reverse | filter:{postType: search}">
 		<a ng-href="#/post/{{post.firebaseIndex}}">
-			
-			<div class="well">
-				
-				<p class="posts-title">{{post.title}}</p>
-				
-				<img class="custom-icon" ng-src="images/icon/{{post.postType}}.png" />
-				
-				<!-- even though I am applying filters to show only  -->
-				<!-- the freelance or positions I have to have two  -->
-				<!-- seperate if blocks for their different looks -->
-				
-				<!-- show the icons for postition -->
-				<span ng-if="post.postType == 'position'" >
-					<img class="custom-icon" ng-src="images/icon/{{post.positionNeeded}}.png" />
-					<img class="custom-icon" ng-repeat="tech in post.reqTech[post.positionNeeded]" ng-if="tech" ng-src="images/{{post.positionNeeded}}/{{tech}}.png"/>
-				</span>
-				
-				<!-- show the icons for freelance -->
-				<!-- these need to be seperated here  -->
-				<!-- beecause of the structure of the firebase -->
-				<span ng-if="post.postType == 'freelance'"  >
-					<img class="custom-icon" ng-repeat="tech in post.reqTech.design" ng-if="tech" ng-src="images/design/{{tech}}.png"/>
-					<img class="custom-icon" ng-repeat="tech in post.reqTech.frontend" ng-if="tech" ng-src="images/frontend/{{tech}}.png"/>
-					<img class="custom-icon" ng-repeat="tech in post.reqTech.backend" ng-if="tech" ng-src="images/backend/{{tech}}.png"/>
-					<img class="custom-icon" ng-repeat="tech in post.reqTech.database" ng-if="tech" ng-src="images/database/{{tech}}.png"/>
-				</span>
-			
-			</div>
-			
-		</a>
+		<div class="well">
+
+			<p class="posts-title">
+				{{post.title}}
+			</p>
+
+			<img class="custom-icon" ng-src="images/icon/{{post.postType}}.png" />
+
+			<!-- even though I am applying filters to show only  -->
+			<!-- the freelance or positions I have to have two  -->
+			<!-- seperate if blocks for their different looks -->
+
+			<!-- show the icons for postition -->
+			<span ng-if="post.postType == 'position'" > <img class="custom-icon" ng-src="images/icon/{{post.positionNeeded}}.png" /> <img class="custom-icon" ng-repeat="tech in post.reqTech[post.positionNeeded]" ng-if="tech" ng-src="images/{{post.positionNeeded}}/{{tech}}.png"/> </span>
+
+			<!-- show the icons for freelance -->
+			<!-- these need to be seperated here  -->
+			<!-- beecause of the structure of the firebase -->
+			<span ng-if="post.postType == 'freelance'"  > <img class="custom-icon" ng-repeat="tech in post.reqTech.design" ng-if="tech" ng-src="images/design/{{tech}}.png"/> <img class="custom-icon" ng-repeat="tech in post.reqTech.frontend" ng-if="tech" ng-src="images/frontend/{{tech}}.png"/> <img class="custom-icon" ng-repeat="tech in post.reqTech.backend" ng-if="tech" ng-src="images/backend/{{tech}}.png"/> <img class="custom-icon" ng-repeat="tech in post.reqTech.database" ng-if="tech" ng-src="images/database/{{tech}}.png"/> </span>
+
+		</div> </a>
 	</div>
 </div>

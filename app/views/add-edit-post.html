@@ -1,5 +1,4 @@
 <h1>{{pageHeading}}</h1>
-<h2>Post Details</h2>
 <form name="postForm" novalidate>
 	<div class="form-group">
 		<label>Title</label>
@@ -13,21 +12,18 @@
 
 	<div class="form-group">
 		<label for="description">Description</label>
-		<span class="help-block">Include any additional info, such as required technology, frameworks or libraries, project details, etc.</span>
-		<textarea name="description" class="form-control" ng-model="post.description"></textarea>
+		<textarea name="description" class="form-control" ng-model="post.description" placeholder="Include additional info such as frameworks, libraries, project details, etc."></textarea>
 	</div>
-
-	<div class="form-group">
-		<label>Compensation</label>
-		<br />
-		<label id="paid">
+	<label>Compensation</label>
+	<div class="form-group row">
+		<label class="normal-weight col-xs-3" id="paid">
 			<input required type="radio" name="compensation" ng-model="post.compensation" ng-value="'paid'" />
-			<img src="/images/icon/paid.png" />
+			<img class="custom-icon" src="/images/icon/paid.png" />
 			<br />
 			Paid</label>
-		<label id="unpaid">
+		<label class="normal-weight col-xs-3" id="unpaid">
 			<input type="radio" name="compensation" ng-model="post.compensation" ng-value="'unpaid'"/>
-			<img src="/images/icon/unpaid.png" />
+			<img class="custom-icon" src="/images/icon/unpaid.png" />
 			<br />
 			Unpaid</label>
 
@@ -36,43 +32,43 @@
 		</div>
 	</div>
 
-	<div class="form-group">
-		<label id="freelance">
+	<label>Category</label>
+	<div class="form-group row">
+		<label class="normal-weight col-xs-3" id="freelance">
 			<input required type="radio" name="postType" ng-model="post.postType" ng-value="'freelance'"/>
-			<img src="/images/icon/freelance.png" />
+			<img class="custom-icon" src="/images/icon/freelance.png" />
 			<br />
 			Freelance</label>
-		<label id="position">
+		<label class="normal-weight col-xs-3" id="position">
 			<input type="radio" name="postType" ng-model="post.postType" ng-value="'position'"/>
-			<img src="/images/icon/position.png" />
+			<img class="custom-icon" src="/images/icon/position.png" />
 			<br />
 			Open Position</label>
 		<div class="error" ng-show="postForm.postType.$invalid">
 			<small class="error" ng-show="postForm.postType.$error.required"> You must specify a post category. </small>
 		</div>
 	</div>
-
-	<div class="form-group" ng-show="post.postType == 'position'">
-		<label>Position Needed</label>
-		<br />
-		<label id="design">
+	
+	<label ng-show="post.postType == 'position'">Position Needed</label>
+	<div class="form-group row" ng-show="post.postType == 'position'">
+		<label class="normal-weight col-xs-3" id="design">
 			<input ng-required="post.postType == 'position'" type="radio" name="positionNeeded" ng-model="post.positionNeeded" ng-value="'design'"/>
-			<img src="/images/icon/design.png" />
+			<img class="custom-icon" src="/images/icon/design.png" />
 			<br />
 			Design</label>
-		<label id="front-end">
+		<label class="normal-weight col-xs-3" id="front-end">
 			<input type="radio" name="positionNeeded" ng-model="post.positionNeeded" ng-value="'frontend'"/>
-			<img src="/images/icon/frontend.png" />
+			<img class="custom-icon" src="/images/icon/frontend.png" />
 			<br />
 			Frontend Dev</label>
-		<label id="back-end">
+		<label class="normal-weight col-xs-3" id="back-end">
 			<input type="radio" name="positionNeeded" ng-model="post.positionNeeded" ng-value="'backend'"/>
-			<img src="/images/icon/backend.png" />
+			<img class="custom-icon" src="/images/icon/backend.png" />
 			<br />
 			Backend Dev</label>
-		<label id="database">
+		<label class="normal-weight col-xs-3" id="database">
 			<input type="radio" name="positionNeeded" ng-model="post.positionNeeded" ng-value="'database'"/>
-			<img src="/images/icon/database.png" />
+			<img class="custom-icon" src="/images/icon/database.png" />
 			<br />
 			Database</label>
 
@@ -95,89 +91,89 @@
 		<label ng-show="post.postType == 'freelance' || (post.postType=='position' && post.positionNeeded)">Required Technologies</label>
 
 		<fieldset id="reqTech">
-			<div ng-show="post.postType == 'freelance' || post.positionNeeded == 'design'">
+			<div class="container-fluid" ng-show="post.postType == 'freelance' || post.positionNeeded == 'design'">
 				<label>Design</label>
 				<div class="checkbox">
-					<label for="photoshop" name="photoshop">
+					<label class="normal-weight col-xs-3" for="photoshop" name="photoshop">
 						<input id="photoshop" type="checkbox" name="design" ng-model="post.reqTech.design.photoshop"  ng-true-value="photoshop">
-						<img src="/images/design/photoshop.png" />
+						<img class="custom-icon" src="/images/design/photoshop.png" />
 						<br />
-						photoshop</label>
+						Photoshop</label>
 					<br />
 				</div>
 				<div class="checkbox">
-					<label for="illustrator">
+					<label class="normal-weight col-xs-3" for="illustrator">
 						<input id="illustrator" type="checkbox" name="design" ng-model="post.reqTech.design.illustrator" ng-true-value="illustrator">
-						<img src="/images/design/illustrator.png" />
+						<img class="custom-icon" src="/images/design/illustrator.png" />
 						<br />
-						illustrator</label>
+						Illustrator</label>
 				</div>
 				<div class="checkbox">
-					<label for="indesign">
+					<label class="normal-weight col-xs-3" for="indesign">
 						<input id="indesign" type="checkbox" name="design" ng-model="post.reqTech.design.indesign" ng-true-value="indesign">
-						<img src="/images/design/indesign.png" />
+						<img class="custom-icon" src="/images/design/indesign.png" />
 						<br />
-						In Design</label>
+						InDesign</label>
 				</div>
 			</div>
 			<div ng-show="post.postType == 'freelance' || post.positionNeeded == 'frontend'">
 				<label>Frontend</label>
 				<div class="checkbox">
-					<label for="html">
+					<label class="normal-weight col-xs-3" for="html">
 						<input id="html" type="checkbox" name="frontend" ng-model="post.reqTech.frontend.html"  ng-true-value="html">
-						<img src="/images/frontend/html.png" />
+						<img class="custom-icon" src="/images/frontend/html.png" />
 						<br />
-						HTML 5</label>
+						HTML5</label>
 				</div>
 				<div class="checkbox">
-					<label for="css">
+					<label class="normal-weight col-xs-3" for="css">
 						<input id="css" type="checkbox" name="frontend" ng-model="post.reqTech.frontend.css" ng-true-value="css">
-						<img src="/images/frontend/css.png" />
+						<img class="custom-icon" src="/images/frontend/css.png" />
 						<br />
-						CSS 3</label>
+						CSS3</label>
 				</div>
 				<div class="checkbox">
-					<label for="javascript">
+					<label class="normal-weight col-xs-3" for="javascript">
 						<input id="javascript" type="checkbox" name="frontend" ng-model="post.reqTech.frontend.javascript" ng-true-value="javascript">
-						<img src="/images/frontend/javascript.png" />
+						<img class="custom-icon" src="/images/frontend/javascript.png" />
 						<br />
-						javascript</label>
+						JavaScript</label>
 				</div>
 			</div>
 			<div ng-show="post.postType == 'freelance' || post.positionNeeded == 'backend'">
-				<label>Back-End</label>
+				<label>Backend</label>
 				<div class="checkbox">
-					<label for="php">
+					<label class="normal-weight col-xs-3" for="php">
 						<input id="php" type="checkbox" name="backend" ng-model="post.reqTech.backend.php" ng-true-value="php">
-						<img src="/images/backend/php.png" />
+						<img class="custom-icon" src="/images/backend/php.png" />
 						<br />
 						PHP</label>
 				</div>
 				<div class="checkbox">
-					<label for="node">
+					<label class="normal-weight col-xs-3" for="node">
 						<input id="node" type="checkbox" name="backend" ng-model="post.reqTech.backend.node" ng-true-value="node" >
-						<img src="/images/backend/node.png" />
+						<img class="custom-icon" src="/images/backend/node.png" />
 						<br />
-						Node JS</label>
+						Node.js</label>
 				</div>
 				<div class="checkbox">
-					<label for="python">
+					<label class="normal-weight col-xs-3" for="python">
 						<input id="python" type="checkbox" name="backend" ng-model="post.reqTech.backend.python" ng-true-value="python">
-						<img src="/images/backend/python.png" />
+						<img class="custom-icon" src="/images/backend/python.png" />
 						<br />
 						Python</label>
 				</div>
 				<div class="checkbox">
-					<label for="ruby">
+					<label class="normal-weight col-xs-3" for="ruby">
 						<input id="ruby" type="checkbox" name="backend" ng-model="post.reqTech.backend.ruby" ng-true-value="ruby" >
-						<img src="/images/backend/ruby.png" />
+						<img class="custom-icon" src="/images/backend/ruby.png" />
 						<br />
 						Ruby</label>
 				</div>
 				<div class="checkbox">
-					<label for="javaSS">
+					<label class="normal-weight col-xs-3" for="javaSS">
 						<input id="javaSS" type="checkbox" name="backend" ng-model="post.reqTech.backend.javaSS" ng-true-value="javaSS">
-						<img src="/images/backend/javaSS.png" />
+						<img class="custom-icon" src="/images/backend/javaSS.png" />
 						<br />
 						Java</label>
 				</div>
@@ -186,18 +182,18 @@
 			<div ng-show="post.postType == 'freelance' || post.positionNeeded == 'database'">
 				<label>Database</label>
 				<div class="checkbox">
-					<label for="mongo">
+					<label class="normal-weight col-xs-3" for="mongo">
 						<input id="mongo" type="checkbox" name="database" ng-model="post.reqTech.database.mongo" ng-true-value="mongo" >
-						<img src="/images/database/mongo.png" />
+						<img class="custom-icon" src="/images/database/mongo.png" />
 						<br />
-						Mongo DB</label>
+						MongoDB</label>
 				</div>
 				<div class="checkbox">
-					<label for="mysql">
+					<label class="normal-weight col-xs-3" for="mysql">
 						<input id="mysql" type="checkbox" name="database" ng-model="post.reqTech.database.mysql" ng-true-value="mysql">
-						<img src="/images/database/mysql.png" />
+						<img class="custom-icon" src="/images/database/mysql.png" />
 						<br />
-						My SQL</label>
+						MySQL</label>
 				</div>
 			</div>
 
