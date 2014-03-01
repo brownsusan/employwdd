@@ -1,9 +1,13 @@
 <h1>{{pageHeading}}</h1><span>Touch for more information.</span><br />
+
 <!-- Make these buttons that filter things -->
-<a href="#/freelance">Freelance</a><br />
-<a href="#/positions">Open Positions</a><br />
+
+<a ng-click="search=''; pageHeading='All Posts'">All Posts</a><br />
+<a ng-click="search='freelance'; pageHeading='Freelance'">Freelance</a><br />
+<a ng-click="search='position'; pageHeading='Open Positions'">Open Positions</a><br />
+
 <div class="row marketing">
-	<div ng-repeat="($priority, post) in posts">
+	<div ng-repeat="($priority, post) in posts | toArray | filter:{postType: search}">
 		<a ng-href="#/post/{{$priority}}">
 			
 			<div class="well">
@@ -11,6 +15,10 @@
 				<p class="posts-title">{{post.title}}</p>
 				
 				<img ng-src="images/icon/{{post.postType}}.png" />
+				
+				<!-- even though I am applying filters to show only  -->
+				<!-- the freelance or positions I have to have two  -->
+				<!-- seperate if blocks for their different looks -->
 				
 				<!-- show the icons for postition -->
 				<span ng-if="post.postType == 'position'" >

@@ -30,17 +30,8 @@ angular.module('employwddApp').controller('AddPostCtrl', function($scope, FireCo
 });
 
 angular.module('employwddApp').controller('PostsCtrl', function($scope, FireConn) {
+	// set a default page heading
 	$scope.pageHeading = 'All Posts';
-	$scope.posts = FireConn.$child('posts');
-});
-
-angular.module('employwddApp').controller('PostsPositionsCtrl', function($scope, FireConn) {
-	$scope.pageHeading = 'Open Positions';
-	$scope.posts = FireConn.$child('posts');
-});
-
-angular.module('employwddApp').controller('PostsFreelanceCtrl', function($scope, FireConn) {
-	$scope.pageHeading = 'Freelance Opportunities';
 	$scope.posts = FireConn.$child('posts');
 });
 
